@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
+
 <body class="theme-light">
   <div class="layout-wrapper">
     <!-- Navbar Superior -->
@@ -34,13 +38,14 @@
 
     <!-- Conteúdo Principal com as 3 Abas -->
     <main class="main-content">
-      
+
       <!-- ======================================================================
            ABA 1: LIÇÕES E CENÁRIOS PRÁTICOS (Tudo o que foi abordado na mentoria)
            ====================================================================== -->
       <section id="tab-lessons" class="tab-pane active">
         <div class="search-and-filter">
-          <input type="text" id="lesson-search" placeholder="🔍 Buscar por comando ou conceito (ex: reset, branch, revert, untracked, origin)..." />
+          <input type="text" id="lesson-search"
+            placeholder="🔍 Buscar por comando ou conceito (ex: reset, branch, revert, untracked, origin)..." />
           <div class="quick-tags">
             <button class="tag-btn active" data-filter="all">Todos</button>
             <button class="tag-btn" data-filter="estados">Estados & Untracked</button>
@@ -49,11 +54,13 @@
             <button class="tag-btn" data-filter="alternativas">Revert & Restore</button>
             <button class="tag-btn" data-filter="avancado">Cherry-pick & Deletar</button>
             <button class="tag-btn" data-filter="github">GitHub & Remotos</button>
+            <button class="tag-btn" data-filter="commits">Labels & Conventional Commits</button>
+            <button class="tag-btn" data-filter="tags">Tags & Releases</button>
           </div>
         </div>
 
         <div class="lessons-grid">
-          
+
           <!-- Lição 1: Untracked e os 3 Estados -->
           <article class="lesson-card" data-category="estados">
             <div class="card-header">
@@ -61,8 +68,9 @@
               <h3>Por que "Untracked Files" e como funcionam as 3 Áreas?</h3>
               <span class="badge-tag">Fundamental</span>
             </div>
-            <p>Quando você inicializa com <code>git init</code>, os arquivos estão apenas no seu disco (Working Directory). O Git sabe que existem, mas não guarda versões até você mandar.</p>
-            
+            <p>Quando você inicializa com <code>git init</code>, os arquivos estão apenas no seu disco (Working
+              Directory). O Git sabe que existem, mas não guarda versões até você mandar.</p>
+
             <div class="workflow-diagram">
               <div class="step-box">
                 <strong>1. Working Directory</strong>
@@ -90,7 +98,8 @@ git add .
 
 # Gravar o commit no histórico
 git commit -m "feat: minha mensagem de commit"</code></pre>
-              <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;feat: mensagem&quot;">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git status&#10;git add .&#10;git commit -m &quot;feat: mensagem&quot;">Copiar</button>
             </div>
           </article>
 
@@ -101,8 +110,9 @@ git commit -m "feat: minha mensagem de commit"</code></pre>
               <h3>Criando, Renomeando e Comitando em Branches</h3>
               <span class="badge-tag">Branches</span>
             </div>
-            <p><strong>Regra de ouro:</strong> Todo commit que você faz vai <em>exclusivamente</em> para a branch em que você está no momento (onde o <code>HEAD</code> aponta).</p>
-            
+            <p><strong>Regra de ouro:</strong> Todo commit que você faz vai <em>exclusivamente</em> para a branch em que
+              você está no momento (onde o <code>HEAD</code> aponta).</p>
+
             <div class="code-box">
               <div class="code-header">Gerenciamento de Branches</div>
               <pre><code># Criar e mudar para nova branch (ex: alpha)
@@ -117,11 +127,14 @@ git branch -v
 # Alternar entre branches
 git switch beta
 git switch main</code></pre>
-              <button class="copy-btn" data-copy="git switch -c alpha&#10;git branch -m alfa beta&#10;git branch -v">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git switch -c alpha&#10;git branch -m alfa beta&#10;git branch -v">Copiar</button>
             </div>
 
             <div class="callout callout-info">
-              💡 <strong>Dica:</strong> Se você comitar na branch <code>beta</code> e voltar para a <code>main</code> com <code>git switch main</code>, os arquivos voltam instantaneamente para a versão da main. A alteração fica guardada em segurança na beta!
+              💡 <strong>Dica:</strong> Se você comitar na branch <code>beta</code> e voltar para a <code>main</code>
+              com <code>git switch main</code>, os arquivos voltam instantaneamente para a versão da main. A alteração
+              fica guardada em segurança na beta!
             </div>
           </article>
 
@@ -132,7 +145,8 @@ git switch main</code></pre>
               <h3>O Mistério do <code>git reset</code>: Por que o arquivo continuou lá?</h3>
               <span class="badge-tag">Histórico & Reset</span>
             </div>
-            <p><strong>O que é o HEAD?</strong> <code>HEAD</code> não significa "início do projeto", significa: <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
+            <p><strong>O que é o HEAD?</strong> <code>HEAD</code> não significa "início do projeto", significa:
+              <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
 
             <div class="table-responsive">
               <table class="comparison-table">
@@ -169,7 +183,10 @@ git switch main</code></pre>
 
             <div class="callout callout-warning">
               ⚠️ <strong>Por que o x.txt continuou quando usou <code>reset --soft</code>?</strong><br>
-              Porque o <code>--soft</code> desfez o commit no histórico, mas deixou o <code>x.txt</code> na Staging Area! Quando um novo commit foi feito em seguida, o <code>x.txt</code> entrou nele novamente. Para sumir com arquivos físicos indesejados, você precisa de <code>git reset --hard &lt;hash-sem-o-arquivo&gt;</code>.
+              Porque o <code>--soft</code> desfez o commit no histórico, mas deixou o <code>x.txt</code> na Staging
+              Area! Quando um novo commit foi feito em seguida, o <code>x.txt</code> entrou nele novamente. Para sumir
+              com arquivos físicos indesejados, você precisa de
+              <code>git reset --hard &lt;hash-sem-o-arquivo&gt;</code>.
             </div>
           </article>
 
@@ -180,7 +197,8 @@ git switch main</code></pre>
               <h3>Como voltar o código sem precisar de <code>git reset</code>?</h3>
               <span class="badge-tag">Segurança</span>
             </div>
-            <p>Em repositórios compartilhados ou quando você quer segurança sem risco de perder código, use estas 3 ferramentas:</p>
+            <p>Em repositórios compartilhados ou quando você quer segurança sem risco de perder código, use estas 3
+              ferramentas:</p>
 
             <div class="code-box">
               <div class="code-header">1. git revert (Padrão ouro em equipes)</div>
@@ -217,7 +235,8 @@ git switch main</code></pre>
               <h3>Passar Commits entre Branches (Cherry-Pick) & Deletar</h3>
               <span class="badge-tag">Avançado</span>
             </div>
-            <p>Quando você quer pescar apenas <strong>um commit específico</strong> de outra branch sem precisar fazer merge de tudo:</p>
+            <p>Quando você quer pescar apenas <strong>um commit específico</strong> de outra branch sem precisar fazer
+              merge de tudo:</p>
 
             <div class="code-box">
               <div class="code-header">git cherry-pick 🍒</div>
@@ -248,7 +267,8 @@ git rebase -i HEAD~3
               <h3>Conectando ao GitHub & Checando o Repositório</h3>
               <span class="badge-tag">GitHub & Remotos</span>
             </div>
-            <p>Como verificar onde seu código está indo e evitar o erro comum <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
+            <p>Como verificar onde seu código está indo e evitar o erro comum
+              <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
 
             <div class="code-box">
               <div class="code-header">Comandos de Conexão com GitHub</div>
@@ -266,12 +286,223 @@ git push -u origin main
 
 # 5. Baixar atualizações do GitHub
 git pull origin main</code></pre>
-              <button class="copy-btn" data-copy="git remote -v&#10;git remote add origin https://github.com/Kevin-Pro-Codes/git-hub-sample.git&#10;git branch -M main&#10;git push -u origin main">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git remote -v&#10;git remote add origin https://github.com/Kevin-Pro-Codes/git-hub-sample.git&#10;git branch -M main&#10;git push -u origin main">Copiar</button>
             </div>
 
             <div class="callout callout-success">
               ✅ <strong>Seu Repositório Vinculado:</strong><br>
-              <code>https://github.com/Kevin-Pro-Codes/git-hub-sample.git</code> já está conectado como <code>origin</code> neste projeto!
+              <code>https://github.com/Kevin-Pro-Codes/git-hub-sample.git</code> já está conectado como
+              <code>origin</code> neste projeto!
+            </div>
+          </article>
+
+          <!-- Lição 7: Labels e Conventional Commits -->
+          <article class="lesson-card" data-category="commits">
+            <div class="card-header">
+              <span class="step-num">07</span>
+              <h3>Tutorial de Labels & Conventional Commits (Padrão Profissional)</h3>
+              <span class="badge-tag">Boas Práticas</span>
+            </div>
+            <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).</p>
+
+            <div class="workflow-diagram">
+              <div class="step-box highlight">
+                <strong>tipo</strong>
+                <span>feat, fix, docs...</span>
+              </div>
+              <span class="arrow">+</span>
+              <div class="step-box">
+                <strong>(escopo opcional)</strong>
+                <span>(auth), (ui), (api)...</span>
+              </div>
+              <span class="arrow">+ :</span>
+              <div class="step-box success">
+                <strong>descrição curta</strong>
+                <span>imperativo, sem ponto final</span>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Label / Tipo</th>
+                    <th>Quando Usar?</th>
+                    <th>Exemplo Prático</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>feat:</code></td>
+                    <td>Nova funcionalidade para o usuário final</td>
+                    <td><code>feat: adiciona filtro por tarefas concluidas</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>fix:</code></td>
+                    <td>Correção de bug ou comportamento incorreto</td>
+                    <td><code>fix: corrige erro ao excluir tarefa com enter</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>docs:</code></td>
+                    <td>Apenas documentação (README, manuais, comentários)</td>
+                    <td><code>docs: atualiza instrucoes de instalacao no README</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>style:</code></td>
+                    <td>Apenas formatação, espaçamento, ponto e vírgula (sem mexer em lógica)</td>
+                    <td><code>style: formata indentacao no style.css</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>refactor:</code></td>
+                    <td>Refatoração de código (não cria feature nem conserta bug)</td>
+                    <td><code>refactor: simplifica funcao de renderizacao da lista</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>perf:</code></td>
+                    <td>Mudança que melhora o desempenho ou velocidade</td>
+                    <td><code>perf: otimiza loop de busca de tarefas</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>test:</code></td>
+                    <td>Adição ou ajuste de testes automatizados</td>
+                    <td><code>test: cria testes unitarios para criacao de tarefas</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>chore:</code></td>
+                    <td>Tarefas de manutenção geral, configs, dependências</td>
+                    <td><code>chore: adiciona arquivo .gitignore</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>build:</code></td>
+                    <td>Alterações em scripts de build ou dependências externas</td>
+                    <td><code>build: atualiza versao de pacotes no package.json</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>ci:</code></td>
+                    <td>Alterações em pipelines de CI/CD ou GitHub Actions</td>
+                    <td><code>ci: adiciona pipeline de deploy automatico</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">Exemplos com Escopo & Breaking Change</div>
+              <pre><code># 1. Com escopo (indica a parte específica do sistema afetada):
+git commit -m "feat(ui): adiciona botao de alternar modo escuro"
+git commit -m "fix(login): resolve falha na validacao de senha"
+
+# 2. Breaking Change (mudança que quebra compatibilidade com versões antigas, usa '!'):
+git commit -m "feat(api)!: remove endpoint /v1/tasks legado"
+
+# 3. Commit com corpo explicativo longo:
+git commit -m "fix(storage): evita perda de dados ao fechar aba" -m "Agora as tarefas sao salvas no localStorage antes do evento beforeunload."</code></pre>
+              <button class="copy-btn" data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar Exemplo</button>
+            </div>
+
+            <div class="callout callout-info">
+              💡 <strong>Regras de Ouro para uma boa mensagem:</strong>
+              <ul style="margin-left: 20px; margin-top: 6px;">
+                <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>, <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).</li>
+                <li>Mantenha a primeira letra minúscula após o tipo: <code>feat: adiciona...</code>.</li>
+                <li><strong>Nunca coloque ponto final</strong> no fim da primeira linha do commit.</li>
+                <li>Limite o título a no máximo <strong>50 a 72 caracteres</strong> para não truncar no GitHub.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Lição 8: Tags e Releases -->
+          <article class="lesson-card" data-category="tags">
+            <div class="card-header">
+              <span class="step-num">08</span>
+              <h3>Tags no Git: Criando Releases, Versões e Versionamento Semântico</h3>
+              <span class="badge-tag">Releases & Versões</span>
+            </div>
+            <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches se movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar versões e releases (ex: <code>v1.0.0</code>).</p>
+
+            <div class="workflow-diagram">
+              <div class="step-box">
+                <strong>Tag Leve (Lightweight)</strong>
+                <span>Apenas um apelido para o commit: <code>git tag v1.0.0</code></span>
+              </div>
+              <span class="arrow">vs</span>
+              <div class="step-box highlight">
+                <strong>Tag Anotada (Annotated - Recomendada)</strong>
+                <span>Guarda autor, data, e-mail e mensagem: <code>git tag -a v1.0.0 -m "..."</code></span>
+              </div>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">1. Criando e Listando Tags Locais</div>
+              <pre><code># Criar tag anotada no commit atual (Recomendado):
+git tag -a v1.0.0 -m "Release da versao 1.0.0 pronta para producao"
+
+# Criar tag em um commit antigo do passado (basta passar o hash):
+git tag -a v0.9.0 c15d5ab -m "Versao beta inicial"
+
+# Listar todas as tags do projeto:
+git tag
+
+# Ver detalhes completos de uma tag (quem criou, data e mensagem):
+git show v1.0.0</code></pre>
+              <button class="copy-btn" data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">2. Enviando Tags para o GitHub (Push)</div>
+              <pre><code># ⚠️ ATENÇÃO: 'git push' normal NÃO envia tags!
+# Para enviar UMA tag específica para o GitHub:
+git push origin v1.0.0
+
+# Para enviar TODAS as tags locais de uma vez para o GitHub:
+git push origin --tags
+
+# O GitHub automaticamente cria uma página de 'Release' para você!</code></pre>
+              <button class="copy-btn" data-copy="git push origin v1.0.0&#10;git push origin --tags">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">3. Deletando Tags (Local e Remoto)</div>
+              <pre><code># Deletar uma tag localmente:
+git tag -d v1.0.0
+
+# Deletar a tag lá no GitHub (remoto):
+git push --delete origin v1.0.0</code></pre>
+              <button class="copy-btn" data-copy="git tag -d v1.0.0&#10;git push --delete origin v1.0.0">Copiar</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Versionamento Semântico (SemVer)</th>
+                    <th>Formato: <code>vMAJOR.MINOR.PATCH</code></th>
+                    <th>Quando Incrementar?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>MAJOR</strong> (v<strong>2</strong>.0.0)</td>
+                    <td>Quebra de compatibilidade</td>
+                    <td>Mudanças drásticas que quebram o código ou API existente.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MINOR</strong> (v1.<strong>1</strong>.0)</td>
+                    <td>Nova funcionalidade</td>
+                    <td>Adiciona nova feature de forma compatível com a versão anterior.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>PATCH</strong> (v1.0.<strong>1</strong>)</td>
+                    <td>Correção de bug</td>
+                    <td>Pequenas correções e consertos de bugs sem novas funcionalidades.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout callout-warning">
+              💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o sistema exatamente como ele foi lançado no passado!
             </div>
           </article>
 
@@ -286,7 +517,8 @@ git pull origin main</code></pre>
           <div class="simulator-header">
             <div>
               <h2>⚡ Simulador Visual de Git</h2>
-              <p>Execute comandos virtuais e veja em tempo real as 3 áreas do Git e a árvore de commits se atualizando!</p>
+              <p>Execute comandos virtuais e veja em tempo real as 3 áreas do Git e a árvore de commits se atualizando!
+              </p>
             </div>
             <button id="sim-reset-btn" class="btn-outline">↺ Reiniciar Simulador</button>
           </div>
@@ -321,14 +553,15 @@ git pull origin main</code></pre>
                 </div>
                 <div class="terminal-input-row">
                   <span class="prompt">$</span>
-                  <input type="text" id="sim-cmd-input" placeholder="Digite um comando (ex: git status, git add ., git commit -m '...') e aperte Enter" />
+                  <input type="text" id="sim-cmd-input"
+                    placeholder="Digite um comando (ex: git status, git add ., git commit -m '...') e aperte Enter" />
                 </div>
               </div>
             </div>
 
             <!-- Coluna Direita: As 3 Caixas e a Árvore de Branches -->
             <div class="sim-visual-panel">
-              
+
               <!-- As 3 Caixas -->
               <h3>As 3 Caixas em Tempo Real</h3>
               <div class="three-boxes-grid">
@@ -358,7 +591,8 @@ git pull origin main</code></pre>
                     <span id="badge-repo" class="count-badge">1 commit</span>
                   </div>
                   <div id="head-indicator" class="head-info">
-                    HEAD aponta para: <strong id="head-branch-name">main</strong> (commit <span id="head-hash">c15d5ab</span>)
+                    HEAD aponta para: <strong id="head-branch-name">main</strong> (commit <span
+                      id="head-hash">c15d5ab</span>)
                   </div>
                 </div>
               </div>
@@ -379,7 +613,11 @@ git pull origin main</code></pre>
       <section id="tab-sandbox" class="tab-pane">
         <div class="sandbox-instructions">
           <h3>🧪 Sandbox de Código para Treino Real</h3>
-          <p>Esta é a aplicação Task Master integrada! Você pode abrir e editar os arquivos <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/index.html">index.html</a>, <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/style.css">style.css</a> e <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/app.js">app.js</a> no seu editor, criar novas branches, testar commits atômicos e fazer push para o seu GitHub.</p>
+          <p>Esta é a aplicação Task Master integrada! Você pode abrir e editar os arquivos <a
+              href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/index.html">index.html</a>, <a
+              href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/style.css">style.css</a> e <a
+              href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/app.js">app.js</a> no seu editor, criar novas
+            branches, testar commits atômicos e fazer push para o seu GitHub.</p>
         </div>
 
         <div class="task-app-wrapper">
@@ -391,13 +629,8 @@ git pull origin main</code></pre>
 
             <section class="task-form-section">
               <form id="task-form">
-                <input 
-                  type="text" 
-                  id="task-input" 
-                  placeholder="Digite uma nova tarefa para treinar Git..." 
-                  autocomplete="off"
-                  required
-                />
+                <input type="text" id="task-input" placeholder="Digite uma nova tarefa para treinar Git..."
+                  autocomplete="off" required />
                 <button type="submit" id="add-btn">Adicionar</button>
               </form>
             </section>
@@ -425,4 +658,5 @@ git pull origin main</code></pre>
 
   <script src="app.js"></script>
 </body>
+
 </html>

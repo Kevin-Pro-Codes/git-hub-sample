@@ -1,7 +1,4 @@
 
-EXEC
+EXECUTE THE APPLICATION WITH: 
 
 python -m http.server 8000
-
-C:\Users\Kevin\Documents\PROJECTS>cd GitCollab
-C:\Users\Kevin\Documents\PROJECTS>cd GitSample
