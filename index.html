@@ -56,6 +56,7 @@
             <button class="tag-btn" data-filter="github">GitHub & Remotos</button>
             <button class="tag-btn" data-filter="commits">Labels & Conventional Commits</button>
             <button class="tag-btn" data-filter="tags">Tags & Releases</button>
+            <button class="tag-btn" data-filter="collab">Pull Request & Git Fetch</button>
           </div>
         </div>
 
@@ -503,6 +504,94 @@ git push --delete origin v1.0.0</code></pre>
 
             <div class="callout callout-warning">
               💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o sistema exatamente como ele foi lançado no passado!
+            </div>
+          </article>
+
+          <!-- Lição 9: Pull Requests e Git Fetch -->
+          <article class="lesson-card" data-category="collab">
+            <div class="card-header">
+              <span class="step-num">09</span>
+              <h3>Pull Requests (PR), Git Fetch & Colaboração em Equipe</h3>
+              <span class="badge-tag">Fluxo Profissional</span>
+            </div>
+            <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para <strong>Code Review</strong> e testes antes do código ser mesclado.</p>
+
+            <div class="workflow-diagram">
+              <div class="step-box highlight">
+                <strong>git fetch</strong>
+                <span>Baixa dados da nuvem SEM alterar arquivos</span>
+              </div>
+              <span class="arrow">+</span>
+              <div class="step-box">
+                <strong>git merge</strong>
+                <span>Junta as alterações na sua branch</span>
+              </div>
+              <span class="arrow">=</span>
+              <div class="step-box success">
+                <strong>git pull</strong>
+                <span>Fetch + Merge automático em 1 comando</span>
+              </div>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">1. O Segredo do Git Fetch (Espiar antes de misturar)</div>
+              <pre><code># 1. Baixa todas as branches e commits do GitHub sem mexer nos seus arquivos:
+git fetch
+
+# 2. Veja os commits que a nuvem tem que você ainda não tem:
+git log HEAD..origin/main --oneline
+
+# 3. Veja exatamente as linhas de código que foram alteradas na nuvem:
+git diff HEAD..origin/main
+
+# 4. Se estiver tudo seguro, aplique as novidades na sua branch:
+git merge origin/main</code></pre>
+              <button class="copy-btn" data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">2. Ciclo Completo de um Pull Request no GitHub</div>
+              <pre><code># 1. Crie uma branch específica para a funcionalidade:
+git switch -c feature/nova-tarefa
+
+# 2. Faça suas edições e commite:
+git add .
+git commit -m "feat(ui): implementa nova funcionalidade"
+
+# 3. Envie a branch para o GitHub criando o rastreamento (-u):
+git push -u origin feature/nova-tarefa
+
+# 4. No GitHub: clique em 'Compare & pull request' e depois 'Create pull request'.
+# 5. Após revisão da equipe, clique em 'Merge pull request'.
+
+# 6. No seu computador, volte para a main e atualize tudo:
+git switch main
+git pull</code></pre>
+              <button class="copy-btn" data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar Fluxo PR</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">3. Simulando 2 Desenvolvedores no mesmo computador (Truque do Collab)</div>
+              <pre><code># Clone o mesmo repositório em uma pasta paralela:
+git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega
+
+# Agora trabalhe na pasta DevColega como se fosse seu colega:
+cd DevColega
+# (edite arquivos, comite e dê git push)
+
+# Depois volte para a sua pasta principal e puxe as alterações:
+cd ../GitSample
+git pull</code></pre>
+              <button class="copy-btn" data-copy="git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega">Copiar</button>
+            </div>
+
+            <div class="callout callout-info">
+              💡 <strong>Por que usar Pull Requests em vez de commitar direto na main?</strong>
+              <ul style="margin-left: 20px; margin-top: 6px;">
+                <li><strong>Protege a produção:</strong> Evita que código com bugs ou quebrado entre na branch principal.</li>
+                <li><strong>Revisão de Código (Code Review):</strong> Outros desenvolvedores podem sugerir melhorias antes do merge.</li>
+                <li><strong>CI/CD Automatizado:</strong> O GitHub Actions pode rodar testes automatizados e verificar se o build passou antes de permitir o merge.</li>
+              </ul>
             </div>
           </article>
 

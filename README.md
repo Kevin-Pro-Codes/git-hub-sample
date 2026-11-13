@@ -16,6 +16,7 @@ Guia completo e pesquisável com botões para **copiar comandos com 1 clique**:
 - **06. Conexão com GitHub & Remotos:** Comandos de configuração de remotos (`git remote add origin`), sincronização com `git push -u origin main` e resolução de erros comuns de digitação.
 - **07. Guia de Labels & Conventional Commits:** Tutorial completo da padronização de commits (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, `chore:`, `build:`, `ci:`), escopos `feat(ui):` e quebras de compatibilidade `feat!:`.
 - **08. Tags no Git & Versionamento Semântico:** Criação de tags anotadas (`git tag -a v1.0.0 -m "..."`), tags no passado, envio para o GitHub (`git push origin --tags`), deleção de tags e regras do SemVer (`vMAJOR.MINOR.PATCH`).
+- **09. Pull Requests (PR), Git Fetch & Colaboração:** Diferença crucial entre `git fetch` (espiar sem alterar arquivos) e `git pull` (`fetch + merge`), ciclo de vida de Pull Request no GitHub e simulação multi-desenvolvedor.
 
 ### 2. ⚡ Simulador Visual de Git (Sandbox)
 - **Terminal virtual integrado** que responde a comandos como `git status`, `git add .`, `git commit -m "..."`, `git switch`, `git reset --soft` e `git reset --hard`.

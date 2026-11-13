@@ -413,6 +413,14 @@ function initSimulator() {
           } else {
             tagNames.forEach(t => termLog(t, "success"));
           }
+        } else if (rawCmd === "git fetch" || rawCmd.startsWith("git fetch")) {
+          termLog("Fetching origin...", "info");
+          termLog("From https://github.com/Kevin-Pro-Codes/git-hub-sample", "info");
+          termLog("* [new branch]      feature/collab -> origin/feature/collab", "success");
+          termLog("git fetch concluído: Informações da nuvem baixadas sem alterar seus arquivos locais!", "success");
+        } else if (rawCmd === "git pull" || rawCmd.startsWith("git pull")) {
+          termLog("git pull executado: Fetch + Merge completado com sucesso!", "success");
+          termLog("Current branch is up to date with 'origin/main'.", "info");
         } else if (rawCmd.startsWith("git remove")) {
           termLog("git: 'remove' is not a git command. See 'git --help'. Did you mean 'remote'?", "warn");
         } else {
