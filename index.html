@@ -20,7 +20,7 @@
       <div class="nav-brand">
         <span class="git-icon">🔀</span>
         <div class="brand-text">
-          <h1>Git & GitHub Teacher</h1>
+          <h1>Git & GitHub Teacher 555</h1>
           <span class="badge">Guia & Simulador Interativo</span>
         </div>
       </div>
@@ -147,7 +147,8 @@ git switch main</code></pre>
               <span class="badge-tag">Histórico & Reset</span>
             </div>
             <p><strong>O que é o HEAD?</strong> <code>HEAD</code> não significa "início do projeto", significa:
-              <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
+              <em>"Onde estou pisando agora"</em> (o commit atual da branch).
+            </p>
 
             <div class="table-responsive">
               <table class="comparison-table">
@@ -269,7 +270,8 @@ git rebase -i HEAD~3
               <span class="badge-tag">GitHub & Remotos</span>
             </div>
             <p>Como verificar onde seu código está indo e evitar o erro comum
-              <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
+              <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).
+            </p>
 
             <div class="code-box">
               <div class="code-header">Comandos de Conexão com GitHub</div>
@@ -305,7 +307,8 @@ git pull origin main</code></pre>
               <h3>Tutorial de Labels & Conventional Commits (Padrão Profissional)</h3>
               <span class="badge-tag">Boas Práticas</span>
             </div>
-            <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).</p>
+            <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma
+              padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).</p>
 
             <div class="workflow-diagram">
               <div class="step-box highlight">
@@ -399,13 +402,17 @@ git commit -m "feat(api)!: remove endpoint /v1/tasks legado"
 
 # 3. Commit com corpo explicativo longo:
 git commit -m "fix(storage): evita perda de dados ao fechar aba" -m "Agora as tarefas sao salvas no localStorage antes do evento beforeunload."</code></pre>
-              <button class="copy-btn" data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar Exemplo</button>
+              <button class="copy-btn"
+                data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar
+                Exemplo</button>
             </div>
 
             <div class="callout callout-info">
               💡 <strong>Regras de Ouro para uma boa mensagem:</strong>
               <ul style="margin-left: 20px; margin-top: 6px;">
-                <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>, <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).</li>
+                <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>,
+                  <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).
+                </li>
                 <li>Mantenha a primeira letra minúscula após o tipo: <code>feat: adiciona...</code>.</li>
                 <li><strong>Nunca coloque ponto final</strong> no fim da primeira linha do commit.</li>
                 <li>Limite o título a no máximo <strong>50 a 72 caracteres</strong> para não truncar no GitHub.</li>
@@ -420,7 +427,9 @@ git commit -m "fix(storage): evita perda de dados ao fechar aba" -m "Agora as ta
               <h3>Tags no Git: Criando Releases, Versões e Versionamento Semântico</h3>
               <span class="badge-tag">Releases & Versões</span>
             </div>
-            <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches se movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar versões e releases (ex: <code>v1.0.0</code>).</p>
+            <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches se
+              movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar
+              versões e releases (ex: <code>v1.0.0</code>).</p>
 
             <div class="workflow-diagram">
               <div class="step-box">
@@ -447,7 +456,8 @@ git tag
 
 # Ver detalhes completos de uma tag (quem criou, data e mensagem):
 git show v1.0.0</code></pre>
-              <button class="copy-btn" data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
             </div>
 
             <div class="code-box">
@@ -503,7 +513,9 @@ git push --delete origin v1.0.0</code></pre>
             </div>
 
             <div class="callout callout-warning">
-              💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o sistema exatamente como ele foi lançado no passado!
+              💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você
+              exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o
+              sistema exatamente como ele foi lançado no passado!
             </div>
           </article>
 
@@ -514,7 +526,10 @@ git push --delete origin v1.0.0</code></pre>
               <h3>Pull Requests (PR), Git Fetch & Colaboração em Equipe</h3>
               <span class="badge-tag">Fluxo Profissional</span>
             </div>
-            <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para <strong>Code Review</strong> e testes antes do código ser mesclado.</p>
+            <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite
+              que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para
+              <strong>Code Review</strong> e testes antes do código ser mesclado.
+            </p>
 
             <div class="workflow-diagram">
               <div class="step-box highlight">
@@ -546,7 +561,8 @@ git diff HEAD..origin/main
 
 # 4. Se estiver tudo seguro, aplique as novidades na sua branch:
 git merge origin/main</code></pre>
-              <button class="copy-btn" data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
             </div>
 
             <div class="code-box">
@@ -567,7 +583,9 @@ git push -u origin feature/nova-tarefa
 # 6. No seu computador, volte para a main e atualize tudo:
 git switch main
 git pull</code></pre>
-              <button class="copy-btn" data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar Fluxo PR</button>
+              <button class="copy-btn"
+                data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar
+                Fluxo PR</button>
             </div>
 
             <div class="code-box">
@@ -582,15 +600,19 @@ cd DevColega
 # Depois volte para a sua pasta principal e puxe as alterações:
 cd ../GitSample
 git pull</code></pre>
-              <button class="copy-btn" data-copy="git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega">Copiar</button>
+              <button class="copy-btn"
+                data-copy="git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega">Copiar</button>
             </div>
 
             <div class="callout callout-info">
               💡 <strong>Por que usar Pull Requests em vez de commitar direto na main?</strong>
               <ul style="margin-left: 20px; margin-top: 6px;">
-                <li><strong>Protege a produção:</strong> Evita que código com bugs ou quebrado entre na branch principal.</li>
-                <li><strong>Revisão de Código (Code Review):</strong> Outros desenvolvedores podem sugerir melhorias antes do merge.</li>
-                <li><strong>CI/CD Automatizado:</strong> O GitHub Actions pode rodar testes automatizados e verificar se o build passou antes de permitir o merge.</li>
+                <li><strong>Protege a produção:</strong> Evita que código com bugs ou quebrado entre na branch
+                  principal.</li>
+                <li><strong>Revisão de Código (Code Review):</strong> Outros desenvolvedores podem sugerir melhorias
+                  antes do merge.</li>
+                <li><strong>CI/CD Automatizado:</strong> O GitHub Actions pode rodar testes automatizados e verificar se
+                  o build passou antes de permitir o merge.</li>
               </ul>
             </div>
           </article>
