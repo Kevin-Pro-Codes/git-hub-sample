@@ -210,7 +210,7 @@ function initSimulator() {
       if (simState.tags) {
         for (const [tagName, tagHash] of Object.entries(simState.tags)) {
           if (tagHash === c.hash) {
-            tagsHtml += ` <span class="node-branch-tag tag-pill">🔖 ${tagName}</span>`;
+            tagsHtml += ` <span class="node-branch-tag tag-pill">${tagName}</span>`;
           }
         }
       }
