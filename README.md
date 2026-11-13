@@ -1,137 +1,41 @@
-# 🚀 Task Master - Projeto Prático para Treinar Git
+# 🎓 Git & GitHub Teacher - Masterclass Interativa
 
-Bem-vindo ao **Task Master**, uma aplicação web minimalista (HTML, CSS e JavaScript puro) feita especificamente para treinar comandos, fluxos de trabalho e boas práticas de Git.
+Uma aplicação web completa desenvolvida para ensinar, simular e exercitar todos os conceitos fundamentais e avançados de **Git & GitHub** no seu dia a dia.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🌟 O que a aplicação inclui:
 
-```text
-GitSample/
-├── index.html     # Estrutura visual da aplicação
-├── style.css      # Estilização e variáveis de tema
-├── app.js         # Lógica de tarefas, filtros e eventos
-├── .gitignore     # Regras de arquivos ignorados
-└── README.md      # Este guia com exercícios práticos
+### 1. 📚 Central de Lições e Cenários Práticos
+Guia completo e pesquisável com botões para **copiar comandos com 1 clique**:
+- **01. Estados do Git & Untracked Files:** Por que arquivos aparecem como *untracked* e como funcionam as 3 caixas (*Working Directory*, *Staging Area* e *Repositório*).
+- **02. Dominando Branches:** Criação (`git switch -c`), renomeação (`git branch -m alfa beta`), verificação (`git branch -v`) e a regra de onde os commits são gravados.
+- **03. O Mistério do `git reset` e o `HEAD`:** Tabela comparativa e explicação detalhada de por que `--soft` mantém os arquivos na Staging Area vs `--mixed` vs `--hard`.
+- **04. Alternativas Seguras ao Reset:** `git revert` (padrão de equipe), `git restore --source` (restaurar arquivos do passado) e `git checkout <hash>` (máquina do tempo temporária).
+- **05. Cherry-Pick e Remoção de Commits:** Pescar commits específicos com `git cherry-pick 🍒` e apagar commits com `git reset --hard HEAD~N` e `git rebase -i`.
+- **06. Conexão com GitHub & Remotos:** Comandos de configuração de remotos (`git remote add origin`), sincronização com `git push -u origin main` e resolução de erros comuns de digitação.
+
+### 2. ⚡ Simulador Visual de Git (Sandbox)
+- **Terminal virtual integrado** que responde a comandos como `git status`, `git add .`, `git commit -m "..."`, `git switch`, `git reset --soft` e `git reset --hard`.
+- **Visualização das 3 Caixas em tempo real:** Mostra arquivos mudando de *Untracked* para *Staged* e para *Committed*.
+- **Árvore Gráfica de Commits:** Renderiza cada nó de commit, os ponteiros de branches e o marcador do **HEAD**.
+
+### 3. 📝 App de Teste (Task Master)
+- Uma lista de tarefas real onde você pode adicionar, filtrar e excluir tarefas enquanto edita o código nos arquivos locais para gerar commits de teste.
+
+---
+
+## 🚀 Como Executar
+
+Basta abrir o arquivo [index.html](file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/index.html) no seu navegador:
+
+```powershell
+Start-Process .\index.html
 ```
 
 ---
 
-## 🎯 Roteiro Prático de Exercícios Git
-
-Siga os cenários abaixo no seu terminal para praticar:
-
-### Exercício 1: Inicializando o Repositório e Primeiro Commit
-1. Inicialize o repositório Git:
-   ```bash
-   git init
-   ```
-2. Verifique o status dos arquivos:
-   ```bash
-   git status
-   ```
-3. Adicione todos os arquivos à staging area:
-   ```bash
-   git add .
-   ```
-4. Crie o primeiro commit com uma mensagem convencional:
-   ```bash
-   git commit -m "feat: estrutura inicial da aplicacao task master"
-   ```
-
----
-
-### Exercício 2: Criando Branches para Novas Funcionalidades
-1. Crie e mude para uma nova branch chamada `feature/dark-mode`:
-   ```bash
-   git switch -c feature/dark-mode
-   # ou: git checkout -b feature/dark-mode
-   ```
-2. Abra `style.css` e mude as variáveis do `:root` ou adicione classes para suporte a tema escuro.
-3. Veja o que mudou com `git diff`:
-   ```bash
-   git diff
-   ```
-4. Faça o commit da feature:
-   ```bash
-   git add style.css
-   git commit -m "feat(ui): adiciona variaveis de cores para tema escuro"
-   ```
-5. Volte para a branch principal (`main` ou `master`):
-   ```bash
-   git switch main
-   ```
-6. Faça o merge da feature:
-   ```bash
-   git merge feature/dark-mode
-   ```
-
----
-
-### Exercício 3: Simulando e Resolvendo um Conflito de Merge
-1. Crie uma branch para alterar o título:
-   ```bash
-   git switch -c alteracao-titulo-a
-   ```
-2. No `index.html`, mude o `<h1>🚀 Task Master</h1>` para `<h1>⚡ Minhas Tarefas</h1>`.
-3. Salve e commite:
-   ```bash
-   git commit -am "chore: altera titulo para Minhas Tarefas"
-   ```
-4. Volte para a branch `main`:
-   ```bash
-   git switch main
-   ```
-5. Crie outra branch a partir da `main`:
-   ```bash
-   git switch -c alteracao-titulo-b
-   ```
-6. No `index.html`, mude a mesma linha do `<h1>` para `<h1>🔥 Lista de Foco</h1>`.
-7. Salve e commite:
-   ```bash
-   git commit -am "chore: altera titulo para Lista de Foco"
-   ```
-8. Volte para a `main`, faça merge da primeira (`alteracao-titulo-a`) e tente fazer merge da segunda (`alteracao-titulo-b`):
-   ```bash
-   git switch main
-   git merge alteracao-titulo-a
-   git merge alteracao-titulo-b
-   ```
-9. **O Git avisará sobre CONFLITO!** Abra o `index.html`, veja os marcadores `<<<<<<<`, `=======` e `>>>>>>>`, escolha a versão desejada, salve e conclua o merge:
-   ```bash
-   git add index.html
-   git commit -m "merge: resolve conflito de titulos no index.html"
-   ```
-
----
-
-### Exercício 4: Praticando `git stash` (Guardar Trabalho Temporário)
-1. Modifique `app.js` adicionando um `console.log("Treinando stash");`.
-2. Imagine que surgiu um bug urgente na `main` e você não quer commitar essa linha ainda. Guarde a alteração:
-   ```bash
-   git stash
-   ```
-3. Verifique que o arquivo voltou ao estado limpo (`git status`).
-4. Quando quiser recuperar o código guardado:
-   ```bash
-   git stash pop
-   ```
-
----
-
-### Exercício 5: Histórico e Limpeza
-- Ver histórico formatado e compacto:
-  ```bash
-  git log --oneline --graph --decorate
-  ```
-- Deletar branches já mergeadas que não serão mais usadas:
-  ```bash
-  git branch -d feature/dark-mode
-  git branch -d alteracao-titulo-a
-  git branch -d alteracao-titulo-b
-  ```
-
----
-
-Divirta-se praticando! Se quiser testar a aplicação visualmente, basta abrir o arquivo [index.html](file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/index.html) diretamente no seu navegador.
-
+## 🌐 Repositório GitHub Conectado
+Este projeto está conectado ao GitHub:
+* **Remote:** `https://github.com/Kevin-Pro-Codes/git-hub-sample.git`
+* **Branch principal:** `main`

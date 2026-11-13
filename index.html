@@ -1,53 +1,428 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git Practice App - Gerenciador de Tarefas</title>
+  <title>Git & GitHub Masterclass - Professor Interativo de Git</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+<body class="theme-light">
+  <div class="layout-wrapper">
+    <!-- Navbar Superior -->
+    <header class="main-navbar">
+      <div class="nav-brand">
+        <span class="git-icon">🔀</span>
+        <div class="brand-text">
+          <h1>Git & GitHub Teacher</h1>
+          <span class="badge">Guia & Simulador Interativo</span>
+        </div>
+      </div>
 
-<body>
-  <div class="container">
-    <header class="app-header">
-      <h1>🚀 Task Master 123</h1>
-      <p class="subtitle">Aplicação para Prática de Fluxos de Trabalho Git</p>
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="lessons">📚 Lições & Cenários</button>
+        <button class="nav-tab" data-tab="simulator">⚡ Simulador Visual</button>
+        <button class="nav-tab" data-tab="sandbox">📝 App de Teste (Task Master)</button>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" title="Alternar Modo Escuro/Claro">🌙</button>
+      </div>
     </header>
 
-    <main>
-      <!-- Formulário para adicionar nova tarefa -->
-      <section class="task-form-section">
-        <form id="task-form">
-          <input type="text" id="task-input" placeholder="Digite uma nova tarefa para treinar Git..." autocomplete="off"
-            required />
-          <button type="submit" id="add-btn">Adicionar</button>
-        </form>
+    <!-- Conteúdo Principal com as 3 Abas -->
+    <main class="main-content">
+      
+      <!-- ======================================================================
+           ABA 1: LIÇÕES E CENÁRIOS PRÁTICOS (Tudo o que foi abordado na mentoria)
+           ====================================================================== -->
+      <section id="tab-lessons" class="tab-pane active">
+        <div class="search-and-filter">
+          <input type="text" id="lesson-search" placeholder="🔍 Buscar por comando ou conceito (ex: reset, branch, revert, untracked, origin)..." />
+          <div class="quick-tags">
+            <button class="tag-btn active" data-filter="all">Todos</button>
+            <button class="tag-btn" data-filter="estados">Estados & Untracked</button>
+            <button class="tag-btn" data-filter="branches">Branches</button>
+            <button class="tag-btn" data-filter="reset">Reset & HEAD</button>
+            <button class="tag-btn" data-filter="alternativas">Revert & Restore</button>
+            <button class="tag-btn" data-filter="avancado">Cherry-pick & Deletar</button>
+            <button class="tag-btn" data-filter="github">GitHub & Remotos</button>
+          </div>
+        </div>
+
+        <div class="lessons-grid">
+          
+          <!-- Lição 1: Untracked e os 3 Estados -->
+          <article class="lesson-card" data-category="estados">
+            <div class="card-header">
+              <span class="step-num">01</span>
+              <h3>Por que "Untracked Files" e como funcionam as 3 Áreas?</h3>
+              <span class="badge-tag">Fundamental</span>
+            </div>
+            <p>Quando você inicializa com <code>git init</code>, os arquivos estão apenas no seu disco (Working Directory). O Git sabe que existem, mas não guarda versões até você mandar.</p>
+            
+            <div class="workflow-diagram">
+              <div class="step-box">
+                <strong>1. Working Directory</strong>
+                <span>Untracked / Modified (Vermelho)</span>
+              </div>
+              <span class="arrow">➡️ git add ➡️</span>
+              <div class="step-box highlight">
+                <strong>2. Staging Area (Index)</strong>
+                <span>Changes to be committed (Verde)</span>
+              </div>
+              <span class="arrow">➡️ git commit ➡️</span>
+              <div class="step-box success">
+                <strong>3. Repositório</strong>
+                <span>Commit salvo permanentemente</span>
+              </div>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">Comandos essenciais</div>
+              <pre><code># Ver arquivos não rastreados ou modificados
+git status
+
+# Preparar todos os arquivos para commit
+git add .
+
+# Gravar o commit no histórico
+git commit -m "feat: minha mensagem de commit"</code></pre>
+              <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;feat: mensagem&quot;">Copiar</button>
+            </div>
+          </article>
+
+          <!-- Lição 2: Branches -->
+          <article class="lesson-card" data-category="branches">
+            <div class="card-header">
+              <span class="step-num">02</span>
+              <h3>Criando, Renomeando e Comitando em Branches</h3>
+              <span class="badge-tag">Branches</span>
+            </div>
+            <p><strong>Regra de ouro:</strong> Todo commit que você faz vai <em>exclusivamente</em> para a branch em que você está no momento (onde o <code>HEAD</code> aponta).</p>
+            
+            <div class="code-box">
+              <div class="code-header">Gerenciamento de Branches</div>
+              <pre><code># Criar e mudar para nova branch (ex: alpha)
+git switch -c alpha
+
+# Renomear uma branch (ex: de alfa para beta)
+git branch -m alfa beta
+
+# Ver em qual branch você está e onde ela parou
+git branch -v
+
+# Alternar entre branches
+git switch beta
+git switch main</code></pre>
+              <button class="copy-btn" data-copy="git switch -c alpha&#10;git branch -m alfa beta&#10;git branch -v">Copiar</button>
+            </div>
+
+            <div class="callout callout-info">
+              💡 <strong>Dica:</strong> Se você comitar na branch <code>beta</code> e voltar para a <code>main</code> com <code>git switch main</code>, os arquivos voltam instantaneamente para a versão da main. A alteração fica guardada em segurança na beta!
+            </div>
+          </article>
+
+          <!-- Lição 3: O Mistério do Reset & HEAD -->
+          <article class="lesson-card" data-category="reset">
+            <div class="card-header">
+              <span class="step-num">03</span>
+              <h3>O Mistério do <code>git reset</code>: Por que o arquivo continuou lá?</h3>
+              <span class="badge-tag">Histórico & Reset</span>
+            </div>
+            <p><strong>O que é o HEAD?</strong> <code>HEAD</code> não significa "início do projeto", significa: <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
+
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Comando</th>
+                    <th>Histórico (HEAD)</th>
+                    <th>Staging (Área de Preparação)</th>
+                    <th>Arquivos Físicos no Disco</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>git reset --soft HEAD~1</code></td>
+                    <td>⏪ Volta 1 commit</td>
+                    <td>✅ Mantém as alterações preparadas</td>
+                    <td>✅ Mantém intacto no seu editor</td>
+                  </tr>
+                  <tr>
+                    <td><code>git reset HEAD~1</code> (mixed)</td>
+                    <td>⏪ Volta 1 commit</td>
+                    <td>🧹 Limpa a Staging Area</td>
+                    <td>✅ Mantém o código no editor (não preparado)</td>
+                  </tr>
+                  <tr>
+                    <td><code>git reset --hard HEAD~1</code></td>
+                    <td>⏪ Volta 1 commit</td>
+                    <td>🧹 Limpa a Staging Area</td>
+                    <td>❌ <strong>Apaga as alterações físicas</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout callout-warning">
+              ⚠️ <strong>Por que o x.txt continuou quando usou <code>reset --soft</code>?</strong><br>
+              Porque o <code>--soft</code> desfez o commit no histórico, mas deixou o <code>x.txt</code> na Staging Area! Quando um novo commit foi feito em seguida, o <code>x.txt</code> entrou nele novamente. Para sumir com arquivos físicos indesejados, você precisa de <code>git reset --hard &lt;hash-sem-o-arquivo&gt;</code>.
+            </div>
+          </article>
+
+          <!-- Lição 4: Alternativas ao Reset -->
+          <article class="lesson-card" data-category="alternativas">
+            <div class="card-header">
+              <span class="step-num">04</span>
+              <h3>Como voltar o código sem precisar de <code>git reset</code>?</h3>
+              <span class="badge-tag">Segurança</span>
+            </div>
+            <p>Em repositórios compartilhados ou quando você quer segurança sem risco de perder código, use estas 3 ferramentas:</p>
+
+            <div class="code-box">
+              <div class="code-header">1. git revert (Padrão ouro em equipes)</div>
+              <pre><code># Cria um novo commit que anula exatamente as mudanças do commit atual
+git revert HEAD</code></pre>
+              <button class="copy-btn" data-copy="git revert HEAD">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">2. git restore --source (Restaura arquivos de um commit antigo)</div>
+              <pre><code># Restaura TODOS os arquivos para como estavam no commit c15d5ab
+git restore --source=c15d5ab .
+
+# Ou restaura apenas um arquivo específico
+git restore --source=c15d5ab index.html</code></pre>
+              <button class="copy-btn" data-copy="git restore --source=c15d5ab .">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">3. git checkout &lt;hash&gt; (Máquina do tempo temporária)</div>
+              <pre><code># Espia o projeto no commit antigo sem alterar histórico
+git checkout c15d5ab
+
+# Retorna para o presente na sua branch
+git switch main</code></pre>
+              <button class="copy-btn" data-copy="git checkout c15d5ab">Copiar</button>
+            </div>
+          </article>
+
+          <!-- Lição 5: Cherry-pick e Deletar Commits -->
+          <article class="lesson-card" data-category="avancado">
+            <div class="card-header">
+              <span class="step-num">05</span>
+              <h3>Passar Commits entre Branches (Cherry-Pick) & Deletar</h3>
+              <span class="badge-tag">Avançado</span>
+            </div>
+            <p>Quando você quer pescar apenas <strong>um commit específico</strong> de outra branch sem precisar fazer merge de tudo:</p>
+
+            <div class="code-box">
+              <div class="code-header">git cherry-pick 🍒</div>
+              <pre><code># 1. Veja o hash do commit na branch de origem
+git log --oneline
+
+# 2. Vá para a branch onde você quer aplicar o commit
+git switch beta
+
+# 3. Copie o commit para a branch atual
+git cherry-pick 00d04ae</code></pre>
+              <button class="copy-btn" data-copy="git switch beta&#10;git cherry-pick 00d04ae">Copiar</button>
+            </div>
+
+            <div class="code-box">
+              <div class="code-header">Deletar commits no meio do histórico (Rebase Interativo)</div>
+              <pre><code># Abre lista dos últimos 3 commits para editar
+git rebase -i HEAD~3
+# Na tela, troque 'pick' por 'drop' no commit que deseja apagar!</code></pre>
+              <button class="copy-btn" data-copy="git rebase -i HEAD~3">Copiar</button>
+            </div>
+          </article>
+
+          <!-- Lição 6: Conectando com GitHub -->
+          <article class="lesson-card" data-category="github">
+            <div class="card-header">
+              <span class="step-num">06</span>
+              <h3>Conectando ao GitHub & Checando o Repositório</h3>
+              <span class="badge-tag">GitHub & Remotos</span>
+            </div>
+            <p>Como verificar onde seu código está indo e evitar o erro comum <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
+
+            <div class="code-box">
+              <div class="code-header">Comandos de Conexão com GitHub</div>
+              <pre><code># 1. Checar se já existe um repositório remoto configurado
+git remote -v
+
+# 2. Conectar ao repositório do GitHub (cuidado: remote, não remove!)
+git remote add origin https://github.com/Kevin-Pro-Codes/git-hub-sample.git
+
+# 3. Renomear branch principal para 'main'
+git branch -M main
+
+# 4. Enviar os commits pela primeira vez
+git push -u origin main
+
+# 5. Baixar atualizações do GitHub
+git pull origin main</code></pre>
+              <button class="copy-btn" data-copy="git remote -v&#10;git remote add origin https://github.com/Kevin-Pro-Codes/git-hub-sample.git&#10;git branch -M main&#10;git push -u origin main">Copiar</button>
+            </div>
+
+            <div class="callout callout-success">
+              ✅ <strong>Seu Repositório Vinculado:</strong><br>
+              <code>https://github.com/Kevin-Pro-Codes/git-hub-sample.git</code> já está conectado como <code>origin</code> neste projeto!
+            </div>
+          </article>
+
+        </div>
       </section>
 
-      <!-- Filtros de tarefas -->
-      <section class="filter-section">
-        <button class="filter-btn active" data-filter="all">Todas</button>
-        <button class="filter-btn" data-filter="pending">Pendentes</button>
-        <button class="filter-btn" data-filter="completed">Concluídas</button>
+      <!-- ======================================================================
+           ABA 2: SIMULADOR VISUAL DE GIT (Árvore de Commits & 3 Caixas Interativas)
+           ====================================================================== -->
+      <section id="tab-simulator" class="tab-pane">
+        <div class="simulator-container">
+          <div class="simulator-header">
+            <div>
+              <h2>⚡ Simulador Visual de Git</h2>
+              <p>Execute comandos virtuais e veja em tempo real as 3 áreas do Git e a árvore de commits se atualizando!</p>
+            </div>
+            <button id="sim-reset-btn" class="btn-outline">↺ Reiniciar Simulador</button>
+          </div>
+
+          <div class="sim-grid">
+            <!-- Coluna Esquerda: Terminal & Botões Rápidos -->
+            <div class="sim-controls-panel">
+              <h3>Painel de Ações Rápidas</h3>
+              <p class="panel-sub">Clique para simular os cenários estudados:</p>
+
+              <div class="sim-buttons-group">
+                <button class="sim-action-btn" data-action="modify-file">✏️ 1. Editar arquivo (Working Tree)</button>
+                <button class="sim-action-btn" data-action="git-add">➕ 2. git add . (Para Staging)</button>
+                <button class="sim-action-btn" data-action="git-commit">💾 3. git commit -m "Nova feature"</button>
+                <button class="sim-action-btn" data-action="switch-branch">🌿 4. git switch -c feature-dark</button>
+                <button class="sim-action-btn" data-action="switch-main">🏠 5. git switch main</button>
+                <button class="sim-action-btn" data-action="reset-soft">⏪ 6. git reset --soft HEAD~1</button>
+                <button class="sim-action-btn" data-action="reset-hard">💥 7. git reset --hard HEAD~1</button>
+                <button class="sim-action-btn" data-action="cherry-pick">🍒 8. git cherry-pick &lt;hash&gt;</button>
+              </div>
+
+              <div class="sim-terminal">
+                <div class="terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="term-title">Terminal Virtual Git</span>
+                </div>
+                <div id="sim-terminal-output" class="terminal-output">
+                  <div class="term-line info">Git Sandbox pronto. Digite ou clique nas ações acima para simular.</div>
+                  <div class="term-line success">On branch main. Working tree clean.</div>
+                </div>
+                <div class="terminal-input-row">
+                  <span class="prompt">$</span>
+                  <input type="text" id="sim-cmd-input" placeholder="Digite um comando (ex: git status, git add ., git commit -m '...') e aperte Enter" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna Direita: As 3 Caixas e a Árvore de Branches -->
+            <div class="sim-visual-panel">
+              
+              <!-- As 3 Caixas -->
+              <h3>As 3 Caixas em Tempo Real</h3>
+              <div class="three-boxes-grid">
+                <div class="box-card" id="box-working">
+                  <div class="box-header">
+                    <h4>1. Working Directory</h4>
+                    <span id="badge-working" class="count-badge">0 arquivos</span>
+                  </div>
+                  <ul id="working-files-list" class="files-list">
+                    <li class="empty-msg">Nenhum arquivo modificado</li>
+                  </ul>
+                </div>
+
+                <div class="box-card" id="box-staging">
+                  <div class="box-header">
+                    <h4>2. Staging Area (Index)</h4>
+                    <span id="badge-staging" class="count-badge">0 arquivos</span>
+                  </div>
+                  <ul id="staging-files-list" class="files-list">
+                    <li class="empty-msg">Nenhum arquivo preparado</li>
+                  </ul>
+                </div>
+
+                <div class="box-card" id="box-repo">
+                  <div class="box-header">
+                    <h4>3. Repositório (HEAD)</h4>
+                    <span id="badge-repo" class="count-badge">1 commit</span>
+                  </div>
+                  <div id="head-indicator" class="head-info">
+                    HEAD aponta para: <strong id="head-branch-name">main</strong> (commit <span id="head-hash">c15d5ab</span>)
+                  </div>
+                </div>
+              </div>
+
+              <!-- Árvore de Histórico de Commits -->
+              <h3 style="margin-top: 24px;">Árvore Gráfica de Commits</h3>
+              <div id="commit-tree" class="commit-tree-view">
+                <!-- Nós de commits gerados via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- Lista de tarefas -->
-      <section class="task-list-section">
-        <ul id="task-list">
-          <!-- As tarefas serão renderizadas dinamicamente pelo JavaScript -->
-        </ul>
+      <!-- ======================================================================
+           ABA 3: APP DE TESTE (TASK MASTER) - Para treinar modificações reais
+           ====================================================================== -->
+      <section id="tab-sandbox" class="tab-pane">
+        <div class="sandbox-instructions">
+          <h3>🧪 Sandbox de Código para Treino Real</h3>
+          <p>Esta é a aplicação Task Master integrada! Você pode abrir e editar os arquivos <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/index.html">index.html</a>, <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/style.css">style.css</a> e <a href="file:///c:/Users/Kevin/Documents/PROJECTS/GitSample/app.js">app.js</a> no seu editor, criar novas branches, testar commits atômicos e fazer push para o seu GitHub.</p>
+        </div>
+
+        <div class="task-app-wrapper">
+          <div class="task-app-container">
+            <header class="task-header">
+              <h2>🚀 Task Master</h2>
+              <p class="subtitle">Aplicação para Prática de Fluxos de Trabalho Git</p>
+            </header>
+
+            <section class="task-form-section">
+              <form id="task-form">
+                <input 
+                  type="text" 
+                  id="task-input" 
+                  placeholder="Digite uma nova tarefa para treinar Git..." 
+                  autocomplete="off"
+                  required
+                />
+                <button type="submit" id="add-btn">Adicionar</button>
+              </form>
+            </section>
+
+            <section class="filter-section">
+              <button class="filter-btn active" data-filter="all">Todas</button>
+              <button class="filter-btn" data-filter="pending">Pendentes</button>
+              <button class="filter-btn" data-filter="completed">Concluídas</button>
+            </section>
+
+            <section class="task-list-section">
+              <ul id="task-list"></ul>
+            </section>
+
+            <footer class="app-footer">
+              <span id="task-counter">0 tarefas pendentes</span>
+              <button id="clear-completed-btn" class="text-btn">Limpar concluídas</button>
+            </footer>
+          </div>
+        </div>
       </section>
 
-      <!-- Contador de tarefas -->
-      <footer class="app-footer">
-        <span id="task-counter">0 tarefas pendentes</span>
-        <button id="clear-completed-btn" class="text-btn">Limpar concluídas</button>
-      </footer>
     </main>
   </div>
 
   <script src="app.js"></script>
 </body>
-
 </html>
