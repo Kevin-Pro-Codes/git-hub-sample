@@ -12,3 +12,10 @@ TEST PULL REQUEST THROUGH TEST BRANCH
 git fetch origin
 # 2. Dá o LOAD TOTAL (força a sua pasta a ficar idêntica à do colaborador, limpando qualquer sujeira):
 git reset --hard origin/alpha
+
+
+REJECT PULL REQUEST AND RECREATE
+
+git switch test
+git branch -D test
+git switch -c test
