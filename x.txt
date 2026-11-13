@@ -1,7 +1,22 @@
 
+<<<<<<< HEAD
 EXEC
+=======
+EXECUTE APPLICATION
+>>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
 python -m http.server 8000
 
 C:\Users\Kevin\Documents\PROJECTS>cd GitCollab
+<<<<<<< HEAD
 C:\Users\Kevin\Documents\PROJECTS>cd GitSample
+=======
+C:\Users\Kevin\Documents\PROJECTS>cd GitSample
+
+TEST PULL REQUEST THROUGH TEST BRANCH
+
+# 1. Baixa as novidades fresquinhas que o colaborador enviou para o GitHub:
+git fetch origin
+# 2. Dá o LOAD TOTAL (força a sua pasta a ficar idêntica à do colaborador, limpando qualquer sujeira):
+git reset --hard origin/alpha
+>>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
