@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Practice App - Gerenciador de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>🚀 Task Master</h1>
+      <p class="subtitle">Aplicação para Prática de Fluxos de Trabalho Git</p>
+    </header>
+
+    <main>
+      <!-- Formulário para adicionar nova tarefa -->
+      <section class="task-form-section">
+        <form id="task-form">
+          <input 
+            type="text" 
+            id="task-input" 
+            placeholder="Digite uma nova tarefa para treinar Git..." 
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="add-btn">Adicionar</button>
+        </form>
+      </section>
+
+      <!-- Filtros de tarefas -->
+      <section class="filter-section">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="pending">Pendentes</button>
+        <button class="filter-btn" data-filter="completed">Concluídas</button>
+      </section>
+
+      <!-- Lista de tarefas -->
+      <section class="task-list-section">
+        <ul id="task-list">
+          <!-- As tarefas serão renderizadas dinamicamente pelo JavaScript -->
+        </ul>
+      </section>
+
+      <!-- Contador de tarefas -->
+      <footer class="app-footer">
+        <span id="task-counter">0 tarefas pendentes</span>
+        <button id="clear-completed-btn" class="text-btn">Limpar concluídas</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

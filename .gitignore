@@ -1,0 +1,19 @@
+# Logs e temporários
+*.log
+npm-debug.log*
+
+# Variáveis de ambiente e segredos
+.env
+.env.local
+
+# Configurações de Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
