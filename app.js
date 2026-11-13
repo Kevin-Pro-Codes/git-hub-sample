@@ -129,6 +129,7 @@ function initSimulator() {
   let simState = {
     currentBranch: "main",
     branches: ["main"],
+    tags: { "v1.0.0": "c15d5ab" },
     workingFiles: [],
     stagedFiles: [],
     commits: [
@@ -205,6 +206,13 @@ function initSimulator() {
       let tagsHtml = `<span class="node-branch-tag">${c.branch}</span>`;
       if (isHead) {
         tagsHtml += ` <span class="node-branch-tag head-tag">HEAD</span>`;
+      }
+      if (simState.tags) {
+        for (const [tagName, tagHash] of Object.entries(simState.tags)) {
+          if (tagHash === c.hash) {
+            tagsHtml += ` <span class="node-branch-tag tag-pill">${tagName}</span>`;
+          }
+        }
       }
 
       node.innerHTML = `
@@ -376,9 +384,43 @@ function initSimulator() {
           simState.commits.slice().reverse().forEach((c) => {
             termLog(`${c.hash} (${c.branch}${c.hash === simState.headCommitHash ? ', HEAD' : ''}) ${c.msg}`, "info");
           });
-        } else if (rawCmd === "git remote -v") {
+        } else if (rawCmd.startsWith("git remote -v")) {
           termLog("origin  https://github.com/Kevin-Pro-Codes/git-hub-sample.git (fetch)", "info");
           termLog("origin  https://github.com/Kevin-Pro-Codes/git-hub-sample.git (push)", "info");
+        } else if (rawCmd.startsWith("git tag -d")) {
+          const parts = rawCmd.split(" ");
+          const tagName = parts[parts.length - 1];
+          if (simState.tags && simState.tags[tagName]) {
+            delete simState.tags[tagName];
+            termLog(`Deleted tag '${tagName}'`, "info");
+            renderSimState();
+          } else {
+            termLog(`error: tag '${tagName}' not found.`, "warn");
+          }
+        } else if (rawCmd.startsWith("git tag -a") || rawCmd.startsWith("git tag ")) {
+          const parts = rawCmd.split(" ");
+          const tagName = parts[rawCmd.includes("-a") ? 2 : 1];
+          if (tagName) {
+            if (!simState.tags) simState.tags = {};
+            simState.tags[tagName] = simState.headCommitHash;
+            termLog(`Tag '${tagName}' criada no commit ${simState.headCommitHash}! 🔖`, "success");
+            renderSimState();
+          }
+        } else if (rawCmd === "git tag") {
+          const tagNames = Object.keys(simState.tags || {});
+          if (tagNames.length === 0) {
+            termLog("Nenhuma tag encontrada.", "info");
+          } else {
+            tagNames.forEach(t => termLog(t, "success"));
+          }
+        } else if (rawCmd === "git fetch" || rawCmd.startsWith("git fetch")) {
+          termLog("Fetching origin...", "info");
+          termLog("From https://github.com/Kevin-Pro-Codes/git-hub-sample", "info");
+          termLog("* [new branch]      feature/collab -> origin/feature/collab", "success");
+          termLog("git fetch concluído: Informações da nuvem baixadas sem alterar seus arquivos locais!", "success");
+        } else if (rawCmd === "git pull" || rawCmd.startsWith("git pull")) {
+          termLog("git pull executado: Fetch + Merge completado com sucesso!", "success");
+          termLog("Current branch is up to date with 'origin/main'.", "info");
         } else if (rawCmd.startsWith("git remove")) {
           termLog("git: 'remove' is not a git command. See 'git --help'. Did you mean 'remote'?", "warn");
         } else {
