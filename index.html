@@ -20,7 +20,7 @@
       <div class="nav-brand">
         <span class="git-icon">🔀</span>
         <div class="brand-text">
-          <h1>Git & GitHub Teacher 555</h1>
+          <h1>Git & GitHub Teacher 999</h1>
           <span class="badge">Guia & Simulador Interativo</span>
         </div>
       </div>
@@ -147,12 +147,11 @@ git switch main</code></pre>
               <span class="badge-tag">Histórico & Reset</span>
             </div>
             <p><strong>O que é o HEAD?</strong> <code>HEAD</code> não significa "início do projeto", significa:
-<<<<<<< HEAD
-              <em>"Onde estou pisando agora"</em> (o commit atual da branch).
+              <<<<<<< HEAD <em>"Onde estou pisando agora"</em> (o commit atual da branch).
             </p>
-=======
-              <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+            =======
+            <em>"Onde estou pisando agora"</em> (o commit atual da branch).</p>
+            >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
             <div class="table-responsive">
               <table class="comparison-table">
@@ -274,12 +273,11 @@ git rebase -i HEAD~3
               <span class="badge-tag">GitHub & Remotos</span>
             </div>
             <p>Como verificar onde seu código está indo e evitar o erro comum
-<<<<<<< HEAD
-              <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).
+              <<<<<<< HEAD <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).
             </p>
-=======
-              <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+            =======
+            <code>git: 'remove' is not a git command</code> (é <code>remote</code>!).</p>
+            >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
             <div class="code-box">
               <div class="code-header">Comandos de Conexão com GitHub</div>
@@ -315,97 +313,99 @@ git pull origin main</code></pre>
               <h3>Tutorial de Labels & Conventional Commits (Padrão Profissional)</h3>
               <span class="badge-tag">Boas Práticas</span>
             </div>
-<<<<<<< HEAD
-            <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma
+            <<<<<<< HEAD <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits
+              de forma
               padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).</p>
-=======
-            <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).</p>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              =======
+              <p>O <strong>Conventional Commits</strong> é o padrão global da indústria para nomear commits de forma
+                padronizada, legível por humanos e por robôs (geração automática de changelogs e versões semânticas).
+              </p>
+              >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
-            <div class="workflow-diagram">
-              <div class="step-box highlight">
-                <strong>tipo</strong>
-                <span>feat, fix, docs...</span>
+              <div class="workflow-diagram">
+                <div class="step-box highlight">
+                  <strong>tipo</strong>
+                  <span>feat, fix, docs...</span>
+                </div>
+                <span class="arrow">+</span>
+                <div class="step-box">
+                  <strong>(escopo opcional)</strong>
+                  <span>(auth), (ui), (api)...</span>
+                </div>
+                <span class="arrow">+ :</span>
+                <div class="step-box success">
+                  <strong>descrição curta</strong>
+                  <span>imperativo, sem ponto final</span>
+                </div>
               </div>
-              <span class="arrow">+</span>
-              <div class="step-box">
-                <strong>(escopo opcional)</strong>
-                <span>(auth), (ui), (api)...</span>
-              </div>
-              <span class="arrow">+ :</span>
-              <div class="step-box success">
-                <strong>descrição curta</strong>
-                <span>imperativo, sem ponto final</span>
-              </div>
-            </div>
 
-            <div class="table-responsive">
-              <table class="comparison-table">
-                <thead>
-                  <tr>
-                    <th>Label / Tipo</th>
-                    <th>Quando Usar?</th>
-                    <th>Exemplo Prático</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>feat:</code></td>
-                    <td>Nova funcionalidade para o usuário final</td>
-                    <td><code>feat: adiciona filtro por tarefas concluidas</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>fix:</code></td>
-                    <td>Correção de bug ou comportamento incorreto</td>
-                    <td><code>fix: corrige erro ao excluir tarefa com enter</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>docs:</code></td>
-                    <td>Apenas documentação (README, manuais, comentários)</td>
-                    <td><code>docs: atualiza instrucoes de instalacao no README</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>style:</code></td>
-                    <td>Apenas formatação, espaçamento, ponto e vírgula (sem mexer em lógica)</td>
-                    <td><code>style: formata indentacao no style.css</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>refactor:</code></td>
-                    <td>Refatoração de código (não cria feature nem conserta bug)</td>
-                    <td><code>refactor: simplifica funcao de renderizacao da lista</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>perf:</code></td>
-                    <td>Mudança que melhora o desempenho ou velocidade</td>
-                    <td><code>perf: otimiza loop de busca de tarefas</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>test:</code></td>
-                    <td>Adição ou ajuste de testes automatizados</td>
-                    <td><code>test: cria testes unitarios para criacao de tarefas</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>chore:</code></td>
-                    <td>Tarefas de manutenção geral, configs, dependências</td>
-                    <td><code>chore: adiciona arquivo .gitignore</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>build:</code></td>
-                    <td>Alterações em scripts de build ou dependências externas</td>
-                    <td><code>build: atualiza versao de pacotes no package.json</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>ci:</code></td>
-                    <td>Alterações em pipelines de CI/CD ou GitHub Actions</td>
-                    <td><code>ci: adiciona pipeline de deploy automatico</code></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              <div class="table-responsive">
+                <table class="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Label / Tipo</th>
+                      <th>Quando Usar?</th>
+                      <th>Exemplo Prático</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>feat:</code></td>
+                      <td>Nova funcionalidade para o usuário final</td>
+                      <td><code>feat: adiciona filtro por tarefas concluidas</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>fix:</code></td>
+                      <td>Correção de bug ou comportamento incorreto</td>
+                      <td><code>fix: corrige erro ao excluir tarefa com enter</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>docs:</code></td>
+                      <td>Apenas documentação (README, manuais, comentários)</td>
+                      <td><code>docs: atualiza instrucoes de instalacao no README</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>style:</code></td>
+                      <td>Apenas formatação, espaçamento, ponto e vírgula (sem mexer em lógica)</td>
+                      <td><code>style: formata indentacao no style.css</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>refactor:</code></td>
+                      <td>Refatoração de código (não cria feature nem conserta bug)</td>
+                      <td><code>refactor: simplifica funcao de renderizacao da lista</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>perf:</code></td>
+                      <td>Mudança que melhora o desempenho ou velocidade</td>
+                      <td><code>perf: otimiza loop de busca de tarefas</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>test:</code></td>
+                      <td>Adição ou ajuste de testes automatizados</td>
+                      <td><code>test: cria testes unitarios para criacao de tarefas</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>chore:</code></td>
+                      <td>Tarefas de manutenção geral, configs, dependências</td>
+                      <td><code>chore: adiciona arquivo .gitignore</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>build:</code></td>
+                      <td>Alterações em scripts de build ou dependências externas</td>
+                      <td><code>build: atualiza versao de pacotes no package.json</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>ci:</code></td>
+                      <td>Alterações em pipelines de CI/CD ou GitHub Actions</td>
+                      <td><code>ci: adiciona pipeline de deploy automatico</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <div class="code-box">
-              <div class="code-header">Exemplos com Escopo & Breaking Change</div>
-              <pre><code># 1. Com escopo (indica a parte específica do sistema afetada):
+              <div class="code-box">
+                <div class="code-header">Exemplos com Escopo & Breaking Change</div>
+                <pre><code># 1. Com escopo (indica a parte específica do sistema afetada):
 git commit -m "feat(ui): adiciona botao de alternar modo escuro"
 git commit -m "fix(login): resolve falha na validacao de senha"
 
@@ -414,30 +414,32 @@ git commit -m "feat(api)!: remove endpoint /v1/tasks legado"
 
 # 3. Commit com corpo explicativo longo:
 git commit -m "fix(storage): evita perda de dados ao fechar aba" -m "Agora as tarefas sao salvas no localStorage antes do evento beforeunload."</code></pre>
-<<<<<<< HEAD
-              <button class="copy-btn"
-                data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar
-                Exemplo</button>
-=======
-              <button class="copy-btn" data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar Exemplo</button>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-            </div>
+                <<<<<<< HEAD <button class="copy-btn"
+                  data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar
+                  Exemplo</button>
+                  =======
+                  <button class="copy-btn"
+                    data-copy="git commit -m &quot;feat(ui): adiciona botao de alternar modo escuro&quot;">Copiar
+                    Exemplo</button>
+                  >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </div>
 
-            <div class="callout callout-info">
-              💡 <strong>Regras de Ouro para uma boa mensagem:</strong>
-              <ul style="margin-left: 20px; margin-top: 6px;">
-<<<<<<< HEAD
-                <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>,
-                  <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).
-                </li>
-=======
-                <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>, <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).</li>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-                <li>Mantenha a primeira letra minúscula após o tipo: <code>feat: adiciona...</code>.</li>
-                <li><strong>Nunca coloque ponto final</strong> no fim da primeira linha do commit.</li>
-                <li>Limite o título a no máximo <strong>50 a 72 caracteres</strong> para não truncar no GitHub.</li>
-              </ul>
-            </div>
+              <div class="callout callout-info">
+                💡 <strong>Regras de Ouro para uma boa mensagem:</strong>
+                <ul style="margin-left: 20px; margin-top: 6px;">
+                  <<<<<<< HEAD <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>,
+                    <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).
+                    </li>
+                    =======
+                    <li>Use verbos no <strong>imperativo</strong>: <em>"adiciona"</em>, <em>"corrige"</em>,
+                      <em>"remove"</em> (em vez de <em>"adicionado"</em> ou <em>"adicionando"</em>).
+                    </li>
+                    >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+                    <li>Mantenha a primeira letra minúscula após o tipo: <code>feat: adiciona...</code>.</li>
+                    <li><strong>Nunca coloque ponto final</strong> no fim da primeira linha do commit.</li>
+                    <li>Limite o título a no máximo <strong>50 a 72 caracteres</strong> para não truncar no GitHub.</li>
+                </ul>
+              </div>
           </article>
 
           <!-- Lição 8: Tags e Releases -->
@@ -447,29 +449,31 @@ git commit -m "fix(storage): evita perda de dados ao fechar aba" -m "Agora as ta
               <h3>Tags no Git: Criando Releases, Versões e Versionamento Semântico</h3>
               <span class="badge-tag">Releases & Versões</span>
             </div>
-<<<<<<< HEAD
-            <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches se
+            <<<<<<< HEAD <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as
+              branches se
               movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar
               versões e releases (ex: <code>v1.0.0</code>).</p>
-=======
-            <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches se movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar versões e releases (ex: <code>v1.0.0</code>).</p>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              =======
+              <p>Uma <strong>Tag</strong> é um "carimbo fixo" (bookmark) em um commit específico. Enquanto as branches
+                se movem a cada novo commit, <strong>uma tag nunca sai do lugar</strong>. É o padrão oficial para marcar
+                versões e releases (ex: <code>v1.0.0</code>).</p>
+              >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
-            <div class="workflow-diagram">
-              <div class="step-box">
-                <strong>Tag Leve (Lightweight)</strong>
-                <span>Apenas um apelido para o commit: <code>git tag v1.0.0</code></span>
+              <div class="workflow-diagram">
+                <div class="step-box">
+                  <strong>Tag Leve (Lightweight)</strong>
+                  <span>Apenas um apelido para o commit: <code>git tag v1.0.0</code></span>
+                </div>
+                <span class="arrow">vs</span>
+                <div class="step-box highlight">
+                  <strong>Tag Anotada (Annotated - Recomendada)</strong>
+                  <span>Guarda autor, data, e-mail e mensagem: <code>git tag -a v1.0.0 -m "..."</code></span>
+                </div>
               </div>
-              <span class="arrow">vs</span>
-              <div class="step-box highlight">
-                <strong>Tag Anotada (Annotated - Recomendada)</strong>
-                <span>Guarda autor, data, e-mail e mensagem: <code>git tag -a v1.0.0 -m "..."</code></span>
-              </div>
-            </div>
 
-            <div class="code-box">
-              <div class="code-header">1. Criando e Listando Tags Locais</div>
-              <pre><code># Criar tag anotada no commit atual (Recomendado):
+              <div class="code-box">
+                <div class="code-header">1. Criando e Listando Tags Locais</div>
+                <pre><code># Criar tag anotada no commit atual (Recomendado):
 git tag -a v1.0.0 -m "Release da versao 1.0.0 pronta para producao"
 
 # Criar tag em um commit antigo do passado (basta passar o hash):
@@ -480,17 +484,17 @@ git tag
 
 # Ver detalhes completos de uma tag (quem criou, data e mensagem):
 git show v1.0.0</code></pre>
-<<<<<<< HEAD
-              <button class="copy-btn"
-                data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
-=======
-              <button class="copy-btn" data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-            </div>
+                <<<<<<< HEAD <button class="copy-btn"
+                  data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
+                  =======
+                  <button class="copy-btn"
+                    data-copy="git tag -a v1.0.0 -m &quot;Release da versao 1.0.0&quot;&#10;git tag">Copiar</button>
+                  >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </div>
 
-            <div class="code-box">
-              <div class="code-header">2. Enviando Tags para o GitHub (Push)</div>
-              <pre><code># ⚠️ ATENÇÃO: 'git push' normal NÃO envia tags!
+              <div class="code-box">
+                <div class="code-header">2. Enviando Tags para o GitHub (Push)</div>
+                <pre><code># ⚠️ ATENÇÃO: 'git push' normal NÃO envia tags!
 # Para enviar UMA tag específica para o GitHub:
 git push origin v1.0.0
 
@@ -498,57 +502,60 @@ git push origin v1.0.0
 git push origin --tags
 
 # O GitHub automaticamente cria uma página de 'Release' para você!</code></pre>
-              <button class="copy-btn" data-copy="git push origin v1.0.0&#10;git push origin --tags">Copiar</button>
-            </div>
+                <button class="copy-btn" data-copy="git push origin v1.0.0&#10;git push origin --tags">Copiar</button>
+              </div>
 
-            <div class="code-box">
-              <div class="code-header">3. Deletando Tags (Local e Remoto)</div>
-              <pre><code># Deletar uma tag localmente:
+              <div class="code-box">
+                <div class="code-header">3. Deletando Tags (Local e Remoto)</div>
+                <pre><code># Deletar uma tag localmente:
 git tag -d v1.0.0
 
 # Deletar a tag lá no GitHub (remoto):
 git push --delete origin v1.0.0</code></pre>
-              <button class="copy-btn" data-copy="git tag -d v1.0.0&#10;git push --delete origin v1.0.0">Copiar</button>
-            </div>
+                <button class="copy-btn"
+                  data-copy="git tag -d v1.0.0&#10;git push --delete origin v1.0.0">Copiar</button>
+              </div>
 
-            <div class="table-responsive">
-              <table class="comparison-table">
-                <thead>
-                  <tr>
-                    <th>Versionamento Semântico (SemVer)</th>
-                    <th>Formato: <code>vMAJOR.MINOR.PATCH</code></th>
-                    <th>Quando Incrementar?</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>MAJOR</strong> (v<strong>2</strong>.0.0)</td>
-                    <td>Quebra de compatibilidade</td>
-                    <td>Mudanças drásticas que quebram o código ou API existente.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>MINOR</strong> (v1.<strong>1</strong>.0)</td>
-                    <td>Nova funcionalidade</td>
-                    <td>Adiciona nova feature de forma compatível com a versão anterior.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>PATCH</strong> (v1.0.<strong>1</strong>)</td>
-                    <td>Correção de bug</td>
-                    <td>Pequenas correções e consertos de bugs sem novas funcionalidades.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              <div class="table-responsive">
+                <table class="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Versionamento Semântico (SemVer)</th>
+                      <th>Formato: <code>vMAJOR.MINOR.PATCH</code></th>
+                      <th>Quando Incrementar?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>MAJOR</strong> (v<strong>2</strong>.0.0)</td>
+                      <td>Quebra de compatibilidade</td>
+                      <td>Mudanças drásticas que quebram o código ou API existente.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>MINOR</strong> (v1.<strong>1</strong>.0)</td>
+                      <td>Nova funcionalidade</td>
+                      <td>Adiciona nova feature de forma compatível com a versão anterior.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>PATCH</strong> (v1.0.<strong>1</strong>)</td>
+                      <td>Correção de bug</td>
+                      <td>Pequenas correções e consertos de bugs sem novas funcionalidades.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <div class="callout callout-warning">
-<<<<<<< HEAD
-              💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você
-              exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o
-              sistema exatamente como ele foi lançado no passado!
-=======
-              💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o sistema exatamente como ele foi lançado no passado!
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-            </div>
+              <div class="callout callout-warning">
+                <<<<<<< HEAD 💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git
+                  coloca você
+                  exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o
+                  sistema exatamente como ele foi lançado no passado!
+                  =======
+                  💡 <strong>Dica Prática:</strong> Se você rodar <code>git checkout v1.0.0</code>, o Git coloca você
+                  exatamente no código daquela versão (em modo <em>Detached HEAD</em>), permitindo testar ou compilar o
+                  sistema exatamente como ele foi lançado no passado!
+                  >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </div>
           </article>
 
           <!-- Lição 9: Pull Requests e Git Fetch -->
@@ -558,35 +565,38 @@ git push --delete origin v1.0.0</code></pre>
               <h3>Pull Requests (PR), Git Fetch & Colaboração em Equipe</h3>
               <span class="badge-tag">Fluxo Profissional</span>
             </div>
-<<<<<<< HEAD
-            <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite
+            <<<<<<< HEAD <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto.
+              Ele permite
               que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para
               <strong>Code Review</strong> e testes antes do código ser mesclado.
-            </p>
-=======
-            <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para <strong>Code Review</strong> e testes antes do código ser mesclado.</p>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </p>
+              =======
+              <p>Um <strong>Pull Request (PR)</strong> é o coração do trabalho em equipe e do código aberto. Ele permite
+                que desenvolvedores proponham alterações de uma branch para a <code>main</code>, abrindo espaço para
+                <strong>Code Review</strong> e testes antes do código ser mesclado.
+              </p>
+              >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
 
-            <div class="workflow-diagram">
-              <div class="step-box highlight">
-                <strong>git fetch</strong>
-                <span>Baixa dados da nuvem SEM alterar arquivos</span>
+              <div class="workflow-diagram">
+                <div class="step-box highlight">
+                  <strong>git fetch</strong>
+                  <span>Baixa dados da nuvem SEM alterar arquivos</span>
+                </div>
+                <span class="arrow">+</span>
+                <div class="step-box">
+                  <strong>git merge</strong>
+                  <span>Junta as alterações na sua branch</span>
+                </div>
+                <span class="arrow">=</span>
+                <div class="step-box success">
+                  <strong>git pull</strong>
+                  <span>Fetch + Merge automático em 1 comando</span>
+                </div>
               </div>
-              <span class="arrow">+</span>
-              <div class="step-box">
-                <strong>git merge</strong>
-                <span>Junta as alterações na sua branch</span>
-              </div>
-              <span class="arrow">=</span>
-              <div class="step-box success">
-                <strong>git pull</strong>
-                <span>Fetch + Merge automático em 1 comando</span>
-              </div>
-            </div>
 
-            <div class="code-box">
-              <div class="code-header">1. O Segredo do Git Fetch (Espiar antes de misturar)</div>
-              <pre><code># 1. Baixa todas as branches e commits do GitHub sem mexer nos seus arquivos:
+              <div class="code-box">
+                <div class="code-header">1. O Segredo do Git Fetch (Espiar antes de misturar)</div>
+                <pre><code># 1. Baixa todas as branches e commits do GitHub sem mexer nos seus arquivos:
 git fetch
 
 # 2. Veja os commits que a nuvem tem que você ainda não tem:
@@ -597,17 +607,18 @@ git diff HEAD..origin/main
 
 # 4. Se estiver tudo seguro, aplique as novidades na sua branch:
 git merge origin/main</code></pre>
-<<<<<<< HEAD
-              <button class="copy-btn"
-                data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
-=======
-              <button class="copy-btn" data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-            </div>
+                <<<<<<< HEAD <button class="copy-btn"
+                  data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">
+                  Copiar</button>
+                  =======
+                  <button class="copy-btn"
+                    data-copy="git fetch&#10;git log HEAD..origin/main --oneline&#10;git diff HEAD..origin/main&#10;git merge origin/main">Copiar</button>
+                  >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </div>
 
-            <div class="code-box">
-              <div class="code-header">2. Ciclo Completo de um Pull Request no GitHub</div>
-              <pre><code># 1. Crie uma branch específica para a funcionalidade:
+              <div class="code-box">
+                <div class="code-header">2. Ciclo Completo de um Pull Request no GitHub</div>
+                <pre><code># 1. Crie uma branch específica para a funcionalidade:
 git switch -c feature/nova-tarefa
 
 # 2. Faça suas edições e commite:
@@ -623,18 +634,20 @@ git push -u origin feature/nova-tarefa
 # 6. No seu computador, volte para a main e atualize tudo:
 git switch main
 git pull</code></pre>
-<<<<<<< HEAD
-              <button class="copy-btn"
-                data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar
-                Fluxo PR</button>
-=======
-              <button class="copy-btn" data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar Fluxo PR</button>
->>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
-            </div>
+                <<<<<<< HEAD <button class="copy-btn"
+                  data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">
+                  Copiar
+                  Fluxo PR</button>
+                  =======
+                  <button class="copy-btn"
+                    data-copy="git switch -c feature/nova-tarefa&#10;git add .&#10;git commit -m &quot;feat: nova funcionalidade&quot;&#10;git push -u origin feature/nova-tarefa">Copiar
+                    Fluxo PR</button>
+                  >>>>>>> b5b2b635aec2c6043f5f1fae6ccc8731faef2b50
+              </div>
 
-            <div class="code-box">
-              <div class="code-header">3. Simulando 2 Desenvolvedores no mesmo computador (Truque do Collab)</div>
-              <pre><code># Clone o mesmo repositório em uma pasta paralela:
+              <div class="code-box">
+                <div class="code-header">3. Simulando 2 Desenvolvedores no mesmo computador (Truque do Collab)</div>
+                <pre><code># Clone o mesmo repositório em uma pasta paralela:
 git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega
 
 # Agora trabalhe na pasta DevColega como se fosse seu colega:
@@ -644,17 +657,21 @@ cd DevColega
 # Depois volte para a sua pasta principal e puxe as alterações:
 cd ../GitSample
 git pull</code></pre>
-              <button class="copy-btn" data-copy="git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega">Copiar</button>
-            </div>
+                <button class="copy-btn"
+                  data-copy="git clone https://github.com/Kevin-Pro-Codes/git-hub-sample.git DevColega">Copiar</button>
+              </div>
 
-            <div class="callout callout-info">
-              💡 <strong>Por que usar Pull Requests em vez de commitar direto na main?</strong>
-              <ul style="margin-left: 20px; margin-top: 6px;">
-                <li><strong>Protege a produção:</strong> Evita que código com bugs ou quebrado entre na branch principal.</li>
-                <li><strong>Revisão de Código (Code Review):</strong> Outros desenvolvedores podem sugerir melhorias antes do merge.</li>
-                <li><strong>CI/CD Automatizado:</strong> O GitHub Actions pode rodar testes automatizados e verificar se o build passou antes de permitir o merge.</li>
-              </ul>
-            </div>
+              <div class="callout callout-info">
+                💡 <strong>Por que usar Pull Requests em vez de commitar direto na main?</strong>
+                <ul style="margin-left: 20px; margin-top: 6px;">
+                  <li><strong>Protege a produção:</strong> Evita que código com bugs ou quebrado entre na branch
+                    principal.</li>
+                  <li><strong>Revisão de Código (Code Review):</strong> Outros desenvolvedores podem sugerir melhorias
+                    antes do merge.</li>
+                  <li><strong>CI/CD Automatizado:</strong> O GitHub Actions pode rodar testes automatizados e verificar
+                    se o build passou antes de permitir o merge.</li>
+                </ul>
+              </div>
           </article>
 
         </div>
