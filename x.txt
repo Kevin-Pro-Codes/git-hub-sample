@@ -6,16 +6,33 @@ python -m http.server 8000
 C:\Users\Kevin\Documents\PROJECTS>cd GitCollab
 C:\Users\Kevin\Documents\PROJECTS>cd GitSample
 
+
 TEST PULL REQUEST THROUGH TEST BRANCH
 
 # 1. Baixa as novidades fresquinhas que o colaborador enviou para o GitHub:
 git fetch origin
 # 2. Dá o LOAD TOTAL (força a sua pasta a ficar idêntica à do colaborador, limpando qualquer sujeira):
-git reset --hard origin/alpha
+git reset --hard origin/pr-branch
+
+Enviar a branch para o GitHub (obrigatório antes de rodar o gh!)
+git push -u origin test
+O comando do GitHub CLI que gerou o Pull Request:
+"C:\Program Files\GitHub CLI\gh.exe" pr create --title "feat: Sistema de Pull Requests e Fetch" --body "Pull Request criado 100% via linha de comando com GitHub CLI!"
 
 
 REJECT PULL REQUEST AND RECREATE
 
 git switch test
 git branch -D test
+git push --delete origin test
 git switch -c test
+
+
+RECOVER FROM A COMMIT 
+
+git restore --source=2a01fc2 .
+
+
+CLEANSE OF MARKERS FROM MAIN
+
+git restore --source=main .
