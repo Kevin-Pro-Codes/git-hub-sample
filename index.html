@@ -26,9 +26,10 @@
       </div>
 
       <nav class="nav-tabs">
-        <button class="nav-tab active" data-tab="lessons">📚 Lições & Cenários</button>
-        <button class="nav-tab" data-tab="simulator">⚡ Simulador Visual</button>
-        <button class="nav-tab" data-tab="sandbox">📝 App de Teste (Task Master)</button>
+        <button class="nav-tab active" data-tab="lessons">Lições & Cenários</button>
+        <button class="nav-tab" data-tab="simulator">Simulador Visual</button>
+        <button class="nav-tab" data-tab="merge-lab">Merge & Conflitos (Lab)</button>
+        <button class="nav-tab" data-tab="sandbox">App de Teste (Task Master)</button>
       </nav>
 
       <div class="nav-actions">
@@ -710,6 +711,103 @@ git pull</code></pre>
               <h3 style="margin-top: 24px;">Árvore Gráfica de Commits</h3>
               <div id="commit-tree" class="commit-tree-view">
                 <!-- Nós de commits gerados via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           ABA: LABORATÓRIO DE MERGE E RESOLUÇÃO DE CONFLITOS INTERATIVO
+           ====================================================================== -->
+      <section id="tab-merge-lab" class="tab-pane">
+        <div class="simulator-container">
+          <div class="simulator-header">
+            <div>
+              <h2>Laboratório Prático: Como Fazer Merge & Resolver Conflitos</h2>
+              <p>Simule um conflito de merge real, aprenda a anatomia dos marcadores e pratique as decisões de resolução ao vivo!</p>
+            </div>
+            <button id="mlab-reset-btn" class="btn-outline">↺ Reiniciar Conflito de Teste</button>
+          </div>
+
+          <!-- Grid Superior do Lab: Editor Interativo de Conflitos -->
+          <div class="sim-grid">
+            <!-- Painel Esquerdo: O Editor de Conflito com Botões de Ação do VS Code -->
+            <div class="sim-controls-panel">
+              <div class="lab-title-row">
+                <h3>Editor de Conflito em Tempo Real</h3>
+                <span id="mlab-status-badge" class="badge-tag in-conflict">Estado: Em Conflito (MERGING)</span>
+              </div>
+              <p class="panel-sub">Clique nos botões abaixo exatamente como faria no VS Code para resolver o conflito:</p>
+
+              <!-- Barra de Ferramentas de Decisão (Igual ao VS Code) -->
+              <div class="conflict-actions-bar">
+                <button class="conflict-btn" id="mlab-accept-current">Accept Current Change (HEAD / Meu Código)</button>
+                <button class="conflict-btn" id="mlab-accept-incoming">Accept Incoming Change (Collab / Código que Entra)</button>
+                <button class="conflict-btn" id="mlab-accept-both">Accept Both Changes (Combinar Ambos)</button>
+              </div>
+
+              <!-- Caixa de Código do Conflito -->
+              <div class="code-box conflict-editor-box">
+                <div class="code-header">
+                  <span>📄 index.html - Marcadores Ativos</span>
+                  <small id="mlab-file-status">Arquivo aguardando sua resolução</small>
+                </div>
+                <pre><code id="mlab-code-view"></code></pre>
+              </div>
+
+              <!-- Passos de Finalização do Merge -->
+              <div class="merge-finish-panel">
+                <h4>Ciclo de Finalização no Terminal:</h4>
+                <div class="steps-flow">
+                  <div class="git-step" id="step-resolve">
+                    <span class="step-indicator">1</span>
+                    <span>Escolha a resolução no arquivo acima</span>
+                  </div>
+                  <div class="git-step" id="step-stage">
+                    <span class="step-indicator">2</span>
+                    <button id="mlab-git-add-btn" class="btn-step" disabled>git add index.html</button>
+                    <small>(Avisa o Git que o conflito foi resolvido)</small>
+                  </div>
+                  <div class="git-step" id="step-commit">
+                    <span class="step-indicator">3</span>
+                    <button id="mlab-git-commit-btn" class="btn-step" disabled>git commit -m "merge: resolve conflito"</button>
+                    <small>(Conclui a união das branches)</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Painel Direito: O Modelo Mental e Guia de Sobrevivência -->
+            <div class="sim-visual-panel">
+              <h3>Anatomia do Conflito: O que cada linha significa?</h3>
+              
+              <div class="conflict-anatomy-card">
+                <div class="anatomy-block head-block">
+                  <strong>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Change)</strong>
+                  <p>O código da branch onde você está no momento (geralmente a sua <code>main</code> ou <code>test</code>).</p>
+                </div>
+                <div class="anatomy-block divider-block">
+                  <strong>======= (Divisor)</strong>
+                  <p>A linha divisória exata que o Git coloca para separar as duas versões divergentes.</p>
+                </div>
+                <div class="anatomy-block incoming-block">
+                  <strong>&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/collab (Incoming Change)</strong>
+                  <p>O código novo que está tentando entrar através do Pull Request ou comando merge.</p>
+                </div>
+              </div>
+
+              <div class="callout callout-warning" style="margin-top: 16px;">
+                🚨 <strong>O Botão de Pânico (Cancelar tudo):</strong><br>
+                Se você encontrar dezenas de conflitos e quiser cancelar imediatamente sem quebrar nada:
+                <code style="display:block; margin-top:4px; font-weight:bold;">git merge --abort</code>
+                Ele restaura todos os seus arquivos exatamente ao estado antes de você tentar o merge!
+              </div>
+
+              <div class="callout callout-success" style="margin-top: 14px;">
+                💡 <strong>Dica Ninja de Equipe:</strong><br>
+                Para aceitar a versão de fora em todos os arquivos de uma vez sem abrir um por um:<br>
+                <code>git checkout --theirs . && git add . && git commit -m "merge: aceita versao do collab"</code>
               </div>
             </div>
           </div>

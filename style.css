@@ -960,3 +960,274 @@ body {
 .text-btn:hover {
   color: var(--danger);
 }
+
+/* =============================================================================
+   12. ABA: LABORATÓRIO DE MERGE E CONFLITOS (LAB)
+   ============================================================================= */
+.lab-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.badge-tag.in-conflict {
+  background: var(--danger-light);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.badge-tag.resolved {
+  background: var(--success-light);
+  color: var(--success);
+  border: 1px solid var(--success);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.badge-tag.staged {
+  background: var(--warning-light);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.conflict-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 12px 0;
+  padding: 10px 12px;
+  background: var(--bg-card-sub);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.conflict-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.conflict-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+#mlab-accept-current:hover {
+  border-color: var(--success);
+  color: var(--success);
+  background: var(--success-light);
+}
+
+#mlab-accept-incoming:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+#mlab-accept-both:hover {
+  border-color: var(--warning);
+  color: var(--warning);
+  background: var(--warning-light);
+}
+
+.conflict-editor-box {
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.conflict-editor-box pre {
+  margin: 0;
+  padding: 16px;
+  background: var(--terminal-bg);
+  color: var(--terminal-text);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.conflict-line-head {
+  color: #a6e3a1;
+  background: rgba(166, 227, 161, 0.12);
+  display: block;
+  padding: 2px 4px;
+  border-left: 3px solid #a6e3a1;
+}
+
+.conflict-line-div {
+  color: #fab387;
+  font-weight: bold;
+  display: block;
+  padding: 2px 4px;
+  border-left: 3px solid #fab387;
+}
+
+.conflict-line-incoming {
+  color: #89b4fa;
+  background: rgba(137, 180, 250, 0.12);
+  display: block;
+  padding: 2px 4px;
+  border-left: 3px solid #89b4fa;
+}
+
+.merge-finish-panel {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--bg-card-sub);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.merge-finish-panel h4 {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.steps-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.git-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.git-step.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.git-step.completed {
+  border-color: var(--success);
+  background: var(--success-light);
+}
+
+.step-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--text-muted);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.git-step.completed .step-indicator {
+  background: var(--success);
+}
+
+.git-step.active .step-indicator {
+  background: var(--primary);
+}
+
+.btn-step {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-step:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-step:disabled {
+  background: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.conflict-anatomy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.anatomy-block {
+  padding: 12px 14px;
+  border-radius: 4px;
+  border-left: 4px solid transparent;
+  background: var(--bg-card-sub);
+}
+
+.anatomy-block strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.anatomy-block p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.anatomy-block.head-block {
+  border-left-color: #10b981;
+  background: var(--success-light);
+}
+
+.anatomy-block.head-block strong {
+  color: #059669;
+}
+
+.anatomy-block.divider-block {
+  border-left-color: #f59e0b;
+  background: var(--warning-light);
+}
+
+.anatomy-block.divider-block strong {
+  color: #d97706;
+}
+
+.anatomy-block.incoming-block {
+  border-left-color: #3b82f6;
+  background: var(--primary-light);
+}
+
+.anatomy-block.incoming-block strong {
+  color: #2563eb;
+}

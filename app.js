@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLessonsSearch();
   initCopyButtons();
   initSimulator();
+  initMergeLab();
   initTaskMaster();
 });
 
@@ -559,4 +560,126 @@ function initTaskMaster() {
   });
 
   renderTasks();
+}
+
+/* =============================================================================
+   7. LABORATÓRIO DE MERGE E CONFLITOS (INTERATIVO)
+   ============================================================================= */
+function initMergeLab() {
+  const codeView = document.getElementById("mlab-code-view");
+  const statusBadge = document.getElementById("mlab-status-badge");
+  const fileStatus = document.getElementById("mlab-file-status");
+  const resetBtn = document.getElementById("mlab-reset-btn");
+
+  const btnAcceptCurrent = document.getElementById("mlab-accept-current");
+  const btnAcceptIncoming = document.getElementById("mlab-accept-incoming");
+  const btnAcceptBoth = document.getElementById("mlab-accept-both");
+
+  const btnGitAdd = document.getElementById("mlab-git-add-btn");
+  const btnGitCommit = document.getElementById("mlab-git-commit-btn");
+
+  const stepResolve = document.getElementById("step-resolve");
+  const stepStage = document.getElementById("step-stage");
+  const stepCommit = document.getElementById("step-commit");
+
+  if (!codeView || !btnAcceptCurrent) return;
+
+  const currentCode = `<header class="main-header">
+  <h1>Git Masterclass - Versão Local (HEAD)</h1>
+  <p>Versão estável da equipe em produção</p>
+</header>`;
+
+  const incomingCode = `<header class="main-header">
+  <h1>Git & GitHub Teacher Pro (origin/minha-feature)</h1>
+  <p>Novos recursos criados pelo colaborador no Pull Request</p>
+</header>`;
+
+  const conflictTemplate = `<<<<<<< HEAD (Current Change: Sua branch local)
+${currentCode}
+=======
+${incomingCode}
+>>>>>>> origin/minha-feature (Incoming Change: Branch do Colaborador)`;
+
+  function resetLab() {
+    // Renderiza com destaques visuais
+    codeView.innerHTML = `&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Change: Sua branch local)\n` +
+      `<span class="conflict-line-head">${escapeHtml(currentCode)}</span>\n` +
+      `<span class="conflict-line-div">=======</span>\n` +
+      `<span class="conflict-line-incoming">${escapeHtml(incomingCode)}</span>\n` +
+      `&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/minha-feature (Incoming Change: Branch do Colaborador)`;
+
+    statusBadge.className = "badge-tag in-conflict";
+    statusBadge.textContent = "Estado: Em Conflito (MERGING)";
+    fileStatus.textContent = "Arquivo aguardando sua resolução";
+
+    btnAcceptCurrent.disabled = false;
+    btnAcceptIncoming.disabled = false;
+    btnAcceptBoth.disabled = false;
+
+    btnGitAdd.disabled = true;
+    btnGitCommit.disabled = true;
+
+    stepResolve.className = "git-step active";
+    stepStage.className = "git-step";
+    stepCommit.className = "git-step";
+  }
+
+  function resolveConflict(choice) {
+    let resolvedContent = "";
+    if (choice === "current") {
+      resolvedContent = currentCode;
+    } else if (choice === "incoming") {
+      resolvedContent = incomingCode;
+    } else if (choice === "both") {
+      resolvedContent = `${currentCode}\n\n<!-- Código adicional integrado do colaborador -->\n${incomingCode}`;
+    }
+
+    codeView.textContent = resolvedContent;
+
+    statusBadge.className = "badge-tag resolved";
+    statusBadge.textContent = "Conflito Resolvido (Não preparado)";
+    fileStatus.textContent = "Marcadores removidos! Arquivo limpo.";
+
+    btnAcceptCurrent.disabled = true;
+    btnAcceptIncoming.disabled = true;
+    btnAcceptBoth.disabled = true;
+
+    stepResolve.className = "git-step completed";
+    stepStage.className = "git-step active";
+    btnGitAdd.disabled = false;
+  }
+
+  btnAcceptCurrent.addEventListener("click", () => resolveConflict("current"));
+  btnAcceptIncoming.addEventListener("click", () => resolveConflict("incoming"));
+  btnAcceptBoth.addEventListener("click", () => resolveConflict("both"));
+
+  btnGitAdd.addEventListener("click", () => {
+    stepStage.className = "git-step completed";
+    stepCommit.className = "git-step active";
+
+    statusBadge.className = "badge-tag staged";
+    statusBadge.textContent = "Staged: index.html pronto para commit";
+    btnGitAdd.disabled = true;
+    btnGitCommit.disabled = false;
+  });
+
+  btnGitCommit.addEventListener("click", () => {
+    stepCommit.className = "git-step completed";
+    statusBadge.className = "badge-tag resolved";
+    statusBadge.textContent = "Merge Concluído com Sucesso! (Clean)";
+    btnGitCommit.disabled = true;
+    fileStatus.textContent = "Fusão gravada no histórico! A branch está limpa e sincronizada.";
+  });
+
+  resetBtn.addEventListener("click", resetLab);
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  // Inicializa o estado inicial do laboratório
+  resetLab();
 }

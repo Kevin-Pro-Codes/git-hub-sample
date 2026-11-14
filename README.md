@@ -23,7 +23,13 @@ Guia completo e pesquisável com botões para **copiar comandos com 1 clique**:
 - **Visualização das 3 Caixas em tempo real:** Mostra arquivos mudando de *Untracked* para *Staged* e para *Committed*.
 - **Árvore Gráfica de Commits:** Renderiza cada nó de commit, os ponteiros de branches e o marcador do **HEAD**.
 
-### 3. 📝 App de Teste (Task Master)
+### 3. 🔀 Laboratório de Merge & Resolução de Conflitos (Merge Lab)
+- **Editor de Conflitos Interativo:** Permite experimentar e ver ao vivo a anatomia dos marcadores `<<<<<<< HEAD`, `=======` e `>>>>>>> origin/minha-feature`.
+- **Botões de Decisão (VS Code Style):** Escolha com 1 clique entre *Accept Current Change*, *Accept Incoming Change* ou *Accept Both Changes*.
+- **Ciclo de Finalização no Terminal:** Acompanhe o passo a passo com botões dinâmicos de `git add <file>` e `git commit -m "merge: ..."` para fixar o fluxo completo de resolução.
+- **Guia de Sobrevivência & Botão de Pânico:** Aprenda como cancelar um merge indesejado com `git merge --abort` e atalhos de equipe como `git checkout --theirs .`.
+
+### 4. 📝 App de Teste (Task Master)
 - Uma lista de tarefas real onde você pode adicionar, filtrar e excluir tarefas enquanto edita o código nos arquivos locais para gerar commits de teste.
 
 ---
